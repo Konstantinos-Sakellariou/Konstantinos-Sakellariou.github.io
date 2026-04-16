@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ExternalLink, Github, Linkedin, Mail, ChevronDown } from 'lucide-react';
+import { Menu, X, ExternalLink, Mail, ChevronDown } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
  
 const Portfolio = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -312,7 +313,7 @@ const Portfolio = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-6 border border-slate-700/50 rounded-lg hover:border-cyan-500 hover:bg-slate-800/50 transition group"
               >
-                <Linkedin className="text-cyan-400 group-hover:text-cyan-300" size={28} />
+                <FaLinkedin className="text-cyan-400 group-hover:text-cyan-300" size={28} />
                 <div>
                   <p className="font-semibold group-hover:text-cyan-400 transition">LinkedIn</p>
                   <p className="text-sm text-slate-500">Connect and follow my professional journey</p>
@@ -325,7 +326,7 @@ const Portfolio = () => {
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-6 border border-slate-700/50 rounded-lg hover:border-violet-500 hover:bg-slate-800/50 transition group"
               >
-                <Github className="text-violet-400 group-hover:text-violet-300" size={28} />
+                <FaGithub className="text-violet-400 group-hover:text-violet-300" size={28} />
                 <div>
                   <p className="font-semibold group-hover:text-violet-400 transition">GitHub</p>
                   <p className="text-sm text-slate-500">Explore my projects and code</p>
