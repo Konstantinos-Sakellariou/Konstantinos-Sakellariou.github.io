@@ -9,9 +9,9 @@ export const navigation = [
 export const hero = {
   eyebrow: 'Portfolio / AI, analytics, systems',
   title: 'Kostas Sakellariou',
-  tagline: 'Data Analytics Lead with 5 years in data science, building ML and analytics systems that turn noisy data into sharper decisions.',
+  tagline: 'Data Analytics Lead building ML and analytics systems that turn noisy data into sharper decisions.',
   description:
-    'I’m a Data Analytics Lead with five years of data science experience, working across sports analytics, iGaming, and AI-native tooling. I am especially interested in Data Scientist and Data Analytics Lead opportunities where experimentation, decision support, and production-minded execution all matter.',
+    'I’m a Data Analytics Lead working across sports analytics, iGaming, and AI-native tooling. I am especially interested in Data Scientist and Data Analytics Lead opportunities where experimentation, decision support, and production-minded execution all matter.',
   primaryCta: {
     label: 'See featured work',
     href: '#featured-work',
@@ -28,7 +28,6 @@ export const hero = {
   notes: [
     { label: 'Sports', value: 'Signal-rich analytics' },
     { label: 'iGaming', value: 'Sharper decision systems' },
-    { label: 'AI', value: 'Agentic workflow design' },
   ],
 }
 
@@ -40,10 +39,10 @@ export const proofPoints = [
       'Public positioning centered on analytics leadership with hands-on depth in modeling, experimentation, and technical delivery.',
   },
   {
-    label: 'Experience',
-    value: '5 years in data science',
+    label: 'Build style',
+    value: 'Experimentation tied to practical use',
     description:
-      'A foundation built through applied data work across analytics, machine learning, and decision-support problems.',
+      'I like moving from analysis and model testing into systems, workflows, and tools that actually support better decisions.',
   },
   {
     label: 'Domain blend',
@@ -148,7 +147,7 @@ export const about = {
   intro:
     'What draws me in is the moment when a model, dataset, or workflow stops being interesting only technically and starts becoming genuinely useful.',
   detail:
-    'That is why I’m drawn to analytics products, sports and iGaming problems, recommender logic, and AI-native systems. They all reward a mix of experimentation, judgment, and thoughtful implementation. Across five years in data science, I have become most motivated by the full arc of the work: framing the problem, shaping the signal, testing approaches, and packaging the result into something people can actually use.',
+    'That is why I’m drawn to analytics products, sports and iGaming problems, recommender logic, and AI-native systems. They all reward a mix of experimentation, judgment, and thoughtful implementation. I am most motivated by the full arc of the work: framing the problem, shaping the signal, testing approaches, and packaging the result into something people can actually use.',
   signatureAreas: [
     'Decision quality over dashboard theater',
     'Production-minded experimentation',

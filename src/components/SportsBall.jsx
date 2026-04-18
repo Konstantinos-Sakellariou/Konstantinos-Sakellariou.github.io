@@ -66,7 +66,7 @@ function SoccerGraphic() {
   )
 }
 
-export default function SportsBall() {
+export default function SportsBall({ className = '' }) {
   const [variant, setVariant] = useState('basketball')
 
   useEffect(() => {
@@ -78,7 +78,7 @@ export default function SportsBall() {
   }, [])
 
   return (
-    <div className="hero-ball-shell" aria-hidden="true">
+    <div className={`hero-ball-shell ${className}`.trim()} aria-hidden="true">
       <div className="hero-ball-shadow" />
       <div className="hero-ball-orbit">
         <div

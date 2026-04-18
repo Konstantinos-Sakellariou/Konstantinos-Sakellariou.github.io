@@ -54,7 +54,7 @@ export function HeroSection({ hero }) {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
               href={hero.primaryCta.href}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--ink)] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[var(--ink-soft)]"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-[var(--accent-strong)] hover:text-slate-950"
             >
               {hero.primaryCta.label}
               <ArrowRight size={16} />
@@ -92,12 +92,12 @@ export function HeroSection({ hero }) {
         </div>
 
         <div className="relative">
-          <div className="relative overflow-hidden rounded-[2rem] border border-[var(--line-strong)] bg-[linear-gradient(180deg,rgba(11,24,50,0.94),rgba(5,11,24,0.96))] px-6 py-8 shadow-[0_28px_80px_rgba(2,6,23,0.34)] sm:px-8">
+          <div className="relative min-h-[32rem] overflow-hidden rounded-[2rem] border border-[var(--line-strong)] bg-[linear-gradient(180deg,rgba(11,24,50,0.94),rgba(5,11,24,0.96))] px-6 py-8 shadow-[0_28px_80px_rgba(2,6,23,0.34)] sm:px-8">
             <div className="absolute inset-x-8 top-8 h-px bg-[linear-gradient(90deg,transparent,rgba(125,211,252,0.18),transparent)]" />
             <div className="absolute inset-y-8 right-8 w-px bg-[linear-gradient(180deg,transparent,rgba(125,211,252,0.12),transparent)]" />
 
-            <div className="hidden gap-3 sm:absolute sm:left-6 sm:top-6 sm:grid">
-              {hero.notes.slice(0, 2).map((note, index) => (
+            <div className="hidden max-w-[14rem] gap-3 sm:absolute sm:left-6 sm:top-6 sm:grid">
+              {hero.notes.map((note, index) => (
                 <div
                   key={note.label}
                   className="hero-note rounded-2xl border border-[var(--line)] bg-[var(--panel)] px-4 py-3 shadow-[0_14px_30px_rgba(2,6,23,0.28)]"
@@ -111,18 +111,9 @@ export function HeroSection({ hero }) {
               ))}
             </div>
 
-            <div className="hidden sm:absolute sm:bottom-6 sm:right-6 sm:block">
-              <div className="hero-note rounded-2xl border border-[var(--line)] bg-[var(--panel)] px-4 py-3 shadow-[0_14px_30px_rgba(2,6,23,0.28)]">
-                <p className="font-mono-ui text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
-                  {hero.notes[2].label}
-                </p>
-                <p className="mt-1 text-sm text-[var(--ink)]">{hero.notes[2].value}</p>
-              </div>
-            </div>
+            <SportsBall className="sm:absolute sm:right-6 sm:top-6 sm:z-10" />
 
-            <SportsBall />
-
-            <div className="mx-auto mt-3 max-w-xs rounded-[1.5rem] border border-[var(--line)] bg-[var(--panel)] p-4 shadow-[0_18px_40px_rgba(2,6,23,0.28)]">
+            <div className="mx-auto mt-6 max-w-xs rounded-[1.5rem] border border-[var(--line)] bg-[var(--panel)] p-4 shadow-[0_18px_40px_rgba(2,6,23,0.28)] sm:ml-0 sm:mt-[16.5rem]">
               <p className="font-mono-ui text-[11px] uppercase tracking-[0.28em] text-[var(--muted)]">
                 Build signature
               </p>
@@ -132,19 +123,7 @@ export function HeroSection({ hero }) {
               </p>
             </div>
 
-            <div className="mt-6 grid gap-3 sm:hidden">
-              {hero.notes.map((note) => (
-                <div
-                  key={note.label}
-                  className="rounded-2xl border border-[var(--line)] bg-[var(--panel)] px-4 py-3"
-                >
-                  <p className="font-mono-ui text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
-                    {note.label}
-                  </p>
-                  <p className="mt-1 text-sm text-[var(--ink)]">{note.value}</p>
-                </div>
-              ))}
-            </div>
+            <div className="mt-6 grid gap-3 sm:hidden" />
           </div>
         </div>
       </div>
@@ -392,7 +371,7 @@ export function CapabilitiesSection({ capabilities }) {
         description="Not just a stack inventory. These are the kinds of systems and problems I like to own."
       />
 
-      <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-5">
+      <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
         {capabilities.map((capability, index) => {
           const Icon = capabilityIcons[index % capabilityIcons.length]
 
@@ -404,7 +383,9 @@ export function CapabilitiesSection({ capabilities }) {
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent-strong)]">
                 <Icon size={22} />
               </div>
-              <h3 className="font-display mt-5 text-xl text-[var(--ink)]">{capability.title}</h3>
+              <h3 className="font-display mt-5 text-lg leading-tight text-[var(--ink)] sm:text-xl">
+                {capability.title}
+              </h3>
               <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{capability.description}</p>
               <p className="mt-4 text-xs uppercase tracking-[0.18em] text-[var(--muted)]">
                 {capability.tools}

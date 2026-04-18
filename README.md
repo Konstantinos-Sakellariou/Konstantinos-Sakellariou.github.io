@@ -1,16 +1,79 @@
-# React + Vite
+# Kostas Sakellariou Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Personal portfolio site for [konstantinos-sakellariou.github.io](https://konstantinos-sakellariou.github.io).
 
-Currently, two official plugins are available:
+The site is built with React, Vite, Tailwind CSS, and GitHub Pages. It is designed as a single-page portfolio focused on:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- personal positioning and profile
+- featured project case studies
+- selected project archive
+- AI, analytics, sports, and iGaming themes
 
-## React Compiler
+## Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- React 19
+- Vite
+- Tailwind CSS 4
+- Lucide React
+- React Icons
 
-## Expanding the ESLint configuration
+## Local Development
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the local development server:
+
+```bash
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+Run linting:
+
+```bash
+npm run lint
+```
+
+## Project Structure
+
+```text
+src/
+  App.jsx
+  App.css
+  index.css
+  components/
+    PortfolioSections.jsx
+    SportsBall.jsx
+  content/
+    portfolio.js
+```
+
+## Deployment
+
+Deployment runs automatically through GitHub Actions when changes are pushed to `main`.
+
+The workflow:
+
+1. installs dependencies
+2. builds the site
+3. uploads the `dist/` output
+4. deploys to GitHub Pages
+
+Workflow file:
+
+`/.github/workflows/deploy.yml`
+
+## Notes
+
+- Content lives in `src/content/portfolio.js`
+- Global look and motion live in `src/index.css` and `src/App.css`
+- The hero sports ball animation is implemented in `src/components/SportsBall.jsx`
