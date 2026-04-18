@@ -5,7 +5,6 @@ import {
   ExternalLink,
   Mail,
   Radar,
-  Sparkles,
   Target,
   Workflow,
 } from 'lucide-react'
@@ -35,7 +34,7 @@ export function HeroSection({ hero }) {
     <section
       id="hero"
       data-nav="hero"
-      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[rgba(255,253,248,0.76)]"
+      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[var(--panel-soft)]"
     >
       <div className="grid gap-12 px-6 py-14 sm:px-8 sm:py-16 lg:grid-cols-[minmax(0,1.1fr)_minmax(320px,0.9fr)] lg:items-center lg:gap-16 lg:px-12 lg:py-20">
         <div>
@@ -64,7 +63,7 @@ export function HeroSection({ hero }) {
               href={hero.secondaryCta.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--line-strong)] bg-[rgba(255,255,255,0.62)] px-6 py-3 text-sm font-semibold text-[var(--ink)] transition hover:-translate-y-0.5 hover:border-[var(--accent)] hover:text-[var(--accent-strong)]"
+              className="inline-flex items-center justify-center gap-2 rounded-full border border-[var(--line-strong)] bg-[var(--panel-strong)] px-6 py-3 text-sm font-semibold text-[var(--ink)] transition hover:-translate-y-0.5 hover:border-[var(--accent)] hover:text-[var(--accent-strong)]"
             >
               {hero.secondaryCta.label}
               <ExternalLink size={16} />
@@ -84,7 +83,7 @@ export function HeroSection({ hero }) {
             {hero.focusAreas.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-[var(--line)] bg-[rgba(255,255,255,0.6)] px-4 py-2 text-sm text-[var(--muted)]"
+                className="rounded-full border border-[var(--line)] bg-[var(--surface)] px-4 py-2 text-sm text-[var(--muted)]"
               >
                 {item}
               </span>
@@ -93,15 +92,15 @@ export function HeroSection({ hero }) {
         </div>
 
         <div className="relative">
-          <div className="relative overflow-hidden rounded-[2rem] border border-[var(--line-strong)] bg-[linear-gradient(180deg,rgba(255,255,255,0.78),rgba(245,240,232,0.96))] px-6 py-8 shadow-[0_28px_80px_rgba(17,24,39,0.08)] sm:px-8">
-            <div className="absolute inset-x-8 top-8 h-px bg-[linear-gradient(90deg,transparent,rgba(17,24,39,0.14),transparent)]" />
-            <div className="absolute inset-y-8 right-8 w-px bg-[linear-gradient(180deg,transparent,rgba(17,24,39,0.1),transparent)]" />
+          <div className="relative overflow-hidden rounded-[2rem] border border-[var(--line-strong)] bg-[linear-gradient(180deg,rgba(11,24,50,0.94),rgba(5,11,24,0.96))] px-6 py-8 shadow-[0_28px_80px_rgba(2,6,23,0.34)] sm:px-8">
+            <div className="absolute inset-x-8 top-8 h-px bg-[linear-gradient(90deg,transparent,rgba(125,211,252,0.18),transparent)]" />
+            <div className="absolute inset-y-8 right-8 w-px bg-[linear-gradient(180deg,transparent,rgba(125,211,252,0.12),transparent)]" />
 
             <div className="hidden gap-3 sm:absolute sm:left-6 sm:top-6 sm:grid">
               {hero.notes.slice(0, 2).map((note, index) => (
                 <div
                   key={note.label}
-                  className="hero-note rounded-2xl border border-[var(--line)] bg-[rgba(255,253,248,0.86)] px-4 py-3 shadow-[0_14px_30px_rgba(17,24,39,0.06)]"
+                  className="hero-note rounded-2xl border border-[var(--line)] bg-[var(--panel)] px-4 py-3 shadow-[0_14px_30px_rgba(2,6,23,0.28)]"
                   style={{ animationDelay: `${index * 1.4}s` }}
                 >
                   <p className="font-mono-ui text-[10px] uppercase tracking-[0.28em] text-[var(--signal)]">
@@ -113,7 +112,7 @@ export function HeroSection({ hero }) {
             </div>
 
             <div className="hidden sm:absolute sm:bottom-6 sm:right-6 sm:block">
-              <div className="hero-note rounded-2xl border border-[var(--line)] bg-[rgba(255,253,248,0.88)] px-4 py-3 shadow-[0_14px_30px_rgba(17,24,39,0.06)]">
+              <div className="hero-note rounded-2xl border border-[var(--line)] bg-[var(--panel)] px-4 py-3 shadow-[0_14px_30px_rgba(2,6,23,0.28)]">
                 <p className="font-mono-ui text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
                   {hero.notes[2].label}
                 </p>
@@ -123,7 +122,7 @@ export function HeroSection({ hero }) {
 
             <SportsBall />
 
-            <div className="mx-auto mt-6 max-w-xs rounded-[1.5rem] border border-[var(--line)] bg-[rgba(255,255,255,0.68)] p-4 shadow-[0_18px_40px_rgba(17,24,39,0.05)]">
+            <div className="mx-auto mt-3 max-w-xs rounded-[1.5rem] border border-[var(--line)] bg-[var(--panel)] p-4 shadow-[0_18px_40px_rgba(2,6,23,0.28)]">
               <p className="font-mono-ui text-[11px] uppercase tracking-[0.28em] text-[var(--muted)]">
                 Build signature
               </p>
@@ -137,7 +136,7 @@ export function HeroSection({ hero }) {
               {hero.notes.map((note) => (
                 <div
                   key={note.label}
-                  className="rounded-2xl border border-[var(--line)] bg-[rgba(255,253,248,0.72)] px-4 py-3"
+                  className="rounded-2xl border border-[var(--line)] bg-[var(--panel)] px-4 py-3"
                 >
                   <p className="font-mono-ui text-[10px] uppercase tracking-[0.28em] text-[var(--accent)]">
                     {note.label}
@@ -157,13 +156,13 @@ export function ProofStrip({ proofPoints }) {
   return (
     <section
       data-nav="hero"
-      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[rgba(255,251,244,0.8)]"
+      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[var(--panel-soft)]"
     >
       <div className="grid gap-px bg-[var(--line)] md:grid-cols-2 xl:grid-cols-4">
         {proofPoints.map((point) => (
           <article
             key={point.label}
-            className="bg-[rgba(255,253,248,0.9)] px-6 py-6 sm:px-8 sm:py-7"
+            className="bg-[var(--panel)] px-6 py-6 sm:px-8 sm:py-7"
           >
             <p className="font-mono-ui text-[11px] uppercase tracking-[0.28em] text-[var(--muted)]">
               {point.label}
@@ -179,7 +178,7 @@ export function ProofStrip({ proofPoints }) {
 
 function CaseStudyCard({ project, index }) {
   return (
-    <article className="rounded-[2rem] border border-[var(--line-strong)] bg-[rgba(255,253,248,0.9)] p-6 shadow-[0_24px_60px_rgba(17,24,39,0.06)] sm:p-8">
+    <article className="rounded-[2rem] border border-[var(--line-strong)] bg-[var(--panel)] p-6 shadow-[0_24px_60px_rgba(2,6,23,0.34)] sm:p-8">
       <div className="flex flex-col gap-4 border-b border-[var(--line)] pb-6 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p className="font-mono-ui text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">
@@ -196,7 +195,7 @@ function CaseStudyCard({ project, index }) {
           href={project.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 self-start rounded-full border border-[var(--line)] bg-white/70 px-4 py-2 text-sm text-[var(--ink)] transition hover:border-[var(--accent)] hover:text-[var(--accent-strong)]"
+          className="inline-flex items-center gap-2 self-start rounded-full border border-[var(--line)] bg-[var(--panel-strong)] px-4 py-2 text-sm text-[var(--ink)] transition hover:border-[var(--accent)] hover:text-[var(--accent-strong)]"
         >
           View repository
           <ExternalLink size={15} />
@@ -246,7 +245,7 @@ function CaseStudyCard({ project, index }) {
               {project.tech.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-[var(--line)] bg-[rgba(15,118,110,0.06)] px-3 py-2 text-xs font-medium text-[var(--ink)]"
+                  className="rounded-full border border-[var(--line)] bg-[var(--accent-soft)] px-3 py-2 text-xs font-medium text-[var(--ink)]"
                 >
                   {item}
                 </span>
@@ -264,12 +263,12 @@ export function FeaturedProjectsSection({ projects }) {
     <section
       id="featured-work"
       data-nav="featured-work"
-      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[rgba(255,253,248,0.82)] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
+      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[var(--panel-soft)] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
     >
       <SectionHeading
         eyebrow="Featured work"
-        title="Selected projects with more context than a repo list can show."
-        description="These are the projects that best represent how I think: clear framing, useful systems, and technical choices tied back to the problem."
+        title="The projects that represent my strongest work right now."
+        description="A smaller set of case studies that feel the most relevant, polished, and representative of how I think."
       />
 
       <div className="mt-10 space-y-8">
@@ -285,19 +284,19 @@ export function ArchiveSection({ projects }) {
   return (
     <section
       data-nav="featured-work"
-      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[rgba(251,247,240,0.82)] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
+      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[var(--panel-soft)] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
     >
       <SectionHeading
         eyebrow="Project archive"
-        title="A few more builds that extend the picture."
-        description="Supporting work across computer vision, no-code style ML tooling, and agentic developer workflows."
+        title="Other projects I still want visible, just with lighter framing."
+        description="Useful supporting work and earlier experiments that add range, without needing the same level of documentation as the featured case studies."
       />
 
       <div className="mt-10 grid gap-6 lg:grid-cols-3">
         {projects.map((project) => (
           <article
             key={project.title}
-            className="flex h-full flex-col rounded-[1.75rem] border border-[var(--line)] bg-[rgba(255,253,248,0.9)] p-6 shadow-[0_18px_42px_rgba(17,24,39,0.05)]"
+            className="flex h-full flex-col rounded-[1.75rem] border border-[var(--line)] bg-[var(--panel)] p-6 shadow-[0_18px_42px_rgba(2,6,23,0.3)]"
           >
             <p className="font-mono-ui text-[11px] uppercase tracking-[0.26em] text-[var(--muted)]">
               {project.summaryTag}
@@ -309,7 +308,7 @@ export function ArchiveSection({ projects }) {
               {project.tech.map((item) => (
                 <span
                   key={item}
-                  className="rounded-full border border-[var(--line)] bg-white/70 px-3 py-2 text-xs text-[var(--ink)]"
+                  className="rounded-full border border-[var(--line)] bg-[var(--panel-strong)] px-3 py-2 text-xs text-[var(--ink)]"
                 >
                   {item}
                 </span>
@@ -337,7 +336,7 @@ export function AboutSection({ about }) {
     <section
       id="about"
       data-nav="about"
-      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[rgba(255,253,248,0.84)] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
+      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[var(--panel-soft)] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
     >
       <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(300px,0.85fr)] lg:gap-14">
         <div>
@@ -353,7 +352,7 @@ export function AboutSection({ about }) {
             {about.signatureAreas.map((item) => (
               <span
                 key={item}
-                className="rounded-full border border-[var(--line)] bg-[rgba(197,108,43,0.08)] px-4 py-2 text-sm text-[var(--ink)]"
+                className="rounded-full border border-[var(--line)] bg-[var(--signal-soft)] px-4 py-2 text-sm text-[var(--ink)]"
               >
                 {item}
               </span>
@@ -365,7 +364,7 @@ export function AboutSection({ about }) {
           {about.panels.map((panel) => (
             <article
               key={panel.label}
-              className="rounded-[1.6rem] border border-[var(--line)] bg-[rgba(255,255,255,0.7)] p-5 shadow-[0_16px_36px_rgba(17,24,39,0.05)]"
+              className="rounded-[1.6rem] border border-[var(--line)] bg-[var(--panel)] p-5 shadow-[0_16px_36px_rgba(2,6,23,0.3)]"
             >
               <p className="font-mono-ui text-[11px] uppercase tracking-[0.26em] text-[var(--accent)]">
                 {panel.label}
@@ -385,7 +384,7 @@ export function CapabilitiesSection({ capabilities }) {
   return (
     <section
       data-nav="about"
-      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[rgba(251,247,240,0.84)] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
+      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[var(--panel-soft)] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
     >
       <SectionHeading
         eyebrow="Capabilities"
@@ -400,7 +399,7 @@ export function CapabilitiesSection({ capabilities }) {
           return (
             <article
               key={capability.title}
-              className="rounded-[1.75rem] border border-[var(--line)] bg-[rgba(255,253,248,0.88)] p-5 shadow-[0_18px_42px_rgba(17,24,39,0.04)]"
+              className="rounded-[1.75rem] border border-[var(--line)] bg-[var(--panel)] p-5 shadow-[0_18px_42px_rgba(2,6,23,0.28)]"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent-strong)]">
                 <Icon size={22} />
@@ -423,7 +422,7 @@ export function ExploringSection({ explorations }) {
     <section
       id="exploring"
       data-nav="exploring"
-      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[rgba(255,253,248,0.84)] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
+      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[var(--panel-soft)] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
     >
       <SectionHeading
         eyebrow="Exploring now"
@@ -441,7 +440,7 @@ export function ExploringSection({ explorations }) {
           return (
             <article
               key={item.title}
-              className="rounded-[1.75rem] border border-[var(--line)] bg-[rgba(255,253,248,0.9)] p-6 shadow-[0_18px_42px_rgba(17,24,39,0.04)]"
+              className="rounded-[1.75rem] border border-[var(--line)] bg-[var(--panel)] p-6 shadow-[0_18px_42px_rgba(2,6,23,0.28)]"
             >
               <span className={`inline-flex rounded-full px-3 py-2 text-xs uppercase tracking-[0.22em] ${toneClass}`}>
                 {item.tag}
@@ -467,7 +466,7 @@ export function ContactSection({ contact }) {
     <section
       id="contact"
       data-nav="contact"
-      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[linear-gradient(180deg,rgba(255,253,248,0.9),rgba(244,240,232,0.96))] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
+      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[linear-gradient(180deg,rgba(10,20,41,0.88),rgba(5,11,24,0.98))] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
     >
       <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.85fr)] lg:gap-14">
         <div>
@@ -498,7 +497,7 @@ export function ContactSection({ contact }) {
                 href={link.href}
                 target={link.external ? '_blank' : undefined}
                 rel={link.external ? 'noopener noreferrer' : undefined}
-                className="group flex items-center gap-4 rounded-[1.6rem] border border-[var(--line)] bg-[rgba(255,255,255,0.72)] px-5 py-5 shadow-[0_16px_36px_rgba(17,24,39,0.05)] transition hover:-translate-y-0.5 hover:border-[var(--line-strong)]"
+                className="group flex items-center gap-4 rounded-[1.6rem] border border-[var(--line)] bg-[var(--panel)] px-5 py-5 shadow-[0_16px_36px_rgba(2,6,23,0.3)] transition hover:-translate-y-0.5 hover:border-[var(--line-strong)]"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent-strong)] transition group-hover:bg-[rgba(15,118,110,0.16)]">
                   <Icon size={22} />

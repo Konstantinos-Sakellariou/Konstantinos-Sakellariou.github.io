@@ -1,9 +1,19 @@
 .editorial-grid {
   background-image:
-    linear-gradient(to right, rgba(17, 24, 39, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(17, 24, 39, 0.045) 1px, transparent 1px);
+    linear-gradient(to right, rgba(125, 211, 252, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(125, 211, 252, 0.04) 1px, transparent 1px);
   background-size: 72px 72px;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.32));
+}
+
+.cosmos-stars {
+  background-image:
+    radial-gradient(circle at 14% 24%, rgba(224, 242, 254, 0.85) 0 1px, transparent 1.4px),
+    radial-gradient(circle at 78% 18%, rgba(186, 230, 253, 0.75) 0 1.1px, transparent 1.5px),
+    radial-gradient(circle at 32% 68%, rgba(255, 255, 255, 0.75) 0 1px, transparent 1.35px),
+    radial-gradient(circle at 86% 74%, rgba(125, 211, 252, 0.75) 0 1.15px, transparent 1.5px);
+  background-size: 420px 280px, 520px 340px, 600px 360px, 700px 420px;
+  background-position: 0 0, 120px 40px, 80px 120px, 0 0;
 }
 
 .hero-note {
@@ -16,24 +26,25 @@
   display: grid;
   width: min(100%, 26rem);
   place-items: center;
-  padding-block: 2rem 0.5rem;
+  padding-block: 0.5rem 2rem;
+  transform: translateY(-1.35rem);
 }
 
 .hero-ball-shadow {
   position: absolute;
-  bottom: 2.5rem;
-  width: 9.75rem;
-  height: 1.15rem;
+  bottom: 4rem;
+  width: 10.5rem;
+  height: 1.25rem;
   border-radius: 999px;
-  background: radial-gradient(circle, rgba(17, 24, 39, 0.24) 0%, rgba(17, 24, 39, 0.04) 68%, transparent 100%);
+  background: radial-gradient(circle, rgba(2, 6, 23, 0.6) 0%, rgba(2, 6, 23, 0.12) 68%, transparent 100%);
   filter: blur(10px);
   animation: heroShadow 7s ease-in-out infinite;
 }
 
 .hero-ball-orbit {
   position: relative;
-  width: 11.5rem;
-  height: 11.5rem;
+  width: 12.5rem;
+  height: 12.5rem;
   animation: heroFloat 7s ease-in-out infinite;
 }
 
@@ -59,7 +70,7 @@
 .sports-ball-svg {
   width: 100%;
   height: 100%;
-  filter: drop-shadow(0 18px 24px rgba(17, 24, 39, 0.14));
+  filter: drop-shadow(0 22px 32px rgba(2, 6, 23, 0.48));
   animation: ballSpin 15s linear infinite;
 }
 

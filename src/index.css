@@ -2,18 +2,25 @@
 @import 'tailwindcss';
 
 :root {
-  --paper: #f4f0e8;
-  --paper-strong: #fffaf2;
-  --ink: #172033;
-  --ink-soft: #283548;
-  --muted: #5a6474;
-  --line: rgba(23, 32, 51, 0.11);
-  --line-strong: rgba(23, 32, 51, 0.18);
-  --accent: #0f766e;
-  --accent-strong: #115e59;
-  --accent-soft: rgba(15, 118, 110, 0.11);
-  --signal: #c56c2b;
-  --signal-strong: #9f4e18;
+  --paper: #050b18;
+  --paper-strong: #0c1830;
+  --panel: rgba(10, 20, 41, 0.8);
+  --panel-strong: rgba(11, 24, 50, 0.92);
+  --panel-soft: rgba(7, 15, 31, 0.72);
+  --panel-nav: rgba(5, 11, 24, 0.8);
+  --surface: rgba(255, 255, 255, 0.06);
+  --surface-strong: rgba(255, 255, 255, 0.1);
+  --ink: #eef4ff;
+  --ink-soft: #d5e4ff;
+  --muted: #9fb0cf;
+  --line: rgba(148, 163, 184, 0.16);
+  --line-strong: rgba(125, 211, 252, 0.22);
+  --accent: #67e8f9;
+  --accent-strong: #7dd3fc;
+  --accent-soft: rgba(56, 189, 248, 0.14);
+  --signal: #f59e0b;
+  --signal-strong: #fdba74;
+  --signal-soft: rgba(245, 158, 11, 0.12);
   --font-body: 'Manrope', sans-serif;
   --font-display: 'Sora', sans-serif;
   --font-mono: 'IBM Plex Mono', monospace;
@@ -72,7 +79,7 @@ button {
 }
 
 ::selection {
-  background: rgba(15, 118, 110, 0.18);
+  background: rgba(103, 232, 249, 0.22);
 }
 
 .font-display {

@@ -60,14 +60,15 @@ function App() {
 
   return (
     <div className="relative isolate overflow-x-hidden bg-[var(--paper)] text-[var(--ink)]">
-      <div className="editorial-grid pointer-events-none fixed inset-0 -z-20 opacity-70" />
-      <div className="pointer-events-none fixed inset-x-0 top-0 -z-10 h-[32rem] bg-[radial-gradient(circle_at_18%_12%,rgba(15,118,110,0.18),transparent_30%),radial-gradient(circle_at_82%_0%,rgba(197,108,43,0.18),transparent_36%),linear-gradient(180deg,rgba(255,255,255,0.45),transparent)]" />
+      <div className="cosmos-stars pointer-events-none fixed inset-0 -z-30 opacity-60" />
+      <div className="editorial-grid pointer-events-none fixed inset-0 -z-20 opacity-60" />
+      <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_18%_12%,rgba(56,189,248,0.28),transparent_26%),radial-gradient(circle_at_82%_8%,rgba(99,102,241,0.2),transparent_32%),radial-gradient(circle_at_50%_120%,rgba(14,165,233,0.16),transparent_38%)]" />
 
-      <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[rgba(244,240,232,0.86)] backdrop-blur-xl">
+      <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[var(--panel-nav)] backdrop-blur-xl">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
           <a href="#hero" className="group">
             <div className="flex items-center gap-3">
-              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--line-strong)] bg-[rgba(255,253,248,0.96)] shadow-[0_12px_28px_rgba(17,24,39,0.06)] transition-transform duration-300 group-hover:-translate-y-0.5">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--line-strong)] bg-[var(--panel-strong)] shadow-[0_12px_28px_rgba(2,6,23,0.36)] transition-transform duration-300 group-hover:-translate-y-0.5">
                 <span className="font-display text-lg font-semibold tracking-[0.16em] text-[var(--ink)]">
                   KS
                 </span>
@@ -93,8 +94,8 @@ function App() {
                   href={`#${item.id}`}
                   className={`rounded-full px-4 py-2 text-sm transition-all duration-300 ${
                     isActive
-                      ? 'bg-[var(--accent-soft)] text-[var(--accent-strong)] shadow-[inset_0_0_0_1px_rgba(15,118,110,0.14)]'
-                      : 'text-[var(--muted)] hover:bg-[rgba(255,253,248,0.95)] hover:text-[var(--ink)]'
+                      ? 'bg-[var(--accent-soft)] text-[var(--accent-strong)] shadow-[inset_0_0_0_1px_rgba(103,232,249,0.18)]'
+                      : 'text-[var(--muted)] hover:bg-[var(--panel-strong)] hover:text-[var(--ink)]'
                   }`}
                 >
                   {item.label}
@@ -108,14 +109,14 @@ function App() {
             aria-expanded={mobileMenuOpen}
             aria-label="Toggle navigation"
             onClick={() => setMobileMenuOpen((value) => !value)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--line)] bg-[rgba(255,253,248,0.88)] text-[var(--ink)] transition hover:border-[var(--line-strong)] hover:bg-white md:hidden"
+            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--line)] bg-[var(--panel-strong)] text-[var(--ink)] transition hover:border-[var(--line-strong)] hover:bg-[var(--surface)] md:hidden"
           >
             {mobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
         {mobileMenuOpen && (
-          <nav className="border-t border-[var(--line)] bg-[rgba(255,253,248,0.95)] px-4 py-4 md:hidden">
+          <nav className="border-t border-[var(--line)] bg-[var(--panel-strong)] px-4 py-4 md:hidden">
             <div className="mx-auto flex max-w-6xl flex-col gap-2">
               {navigation.map((item) => (
                 <a
@@ -125,7 +126,7 @@ function App() {
                   className={`rounded-2xl px-4 py-3 text-sm transition ${
                     activeSection === item.id
                       ? 'bg-[var(--accent-soft)] text-[var(--accent-strong)]'
-                      : 'text-[var(--muted)] hover:bg-[rgba(15,118,110,0.08)] hover:text-[var(--ink)]'
+                      : 'text-[var(--muted)] hover:bg-[var(--surface)] hover:text-[var(--ink)]'
                   }`}
                 >
                   {item.label}

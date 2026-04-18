@@ -79,6 +79,24 @@ export const featuredProjects = [
     link: 'https://github.com/Konstantinos-Sakellariou/NBA_Fantasy',
   },
   {
+    title: 'Claude Code Team Kit',
+    highlight: 'Developer workflows / Agentic systems',
+    summary:
+      'A workflow and tooling kit for building with coding agents in a more structured, team-friendly, and reusable way.',
+    problem:
+      'As agentic development becomes more common, teams quickly run into inconsistent setup, unclear collaboration patterns, and brittle handoff processes.',
+    role:
+      'Packaged conventions, tooling, and workflow ideas into a more repeatable development kit for agent-based coding and automation work.',
+    approach:
+      'Focused on practical scaffolding, collaboration patterns, and developer ergonomics so agent-driven work feels more reliable and easier to extend across projects.',
+    outcome:
+      'Turned a set of useful agentic workflow ideas into a reusable kit that better reflects how I think about AI-assisted development in practice.',
+    takeaway:
+      'AI tooling becomes more valuable when the surrounding workflow is designed as deliberately as the prompts or models themselves.',
+    tech: ['Shell', 'Automation', 'Developer tooling', 'Agentic workflows'],
+    link: 'https://github.com/Konstantinos-Sakellariou/claude-team-kit',
+  },
+  {
     title: 'Agentic Emailing System',
     highlight: 'AI systems / Workflow orchestration',
     summary:
@@ -96,30 +114,20 @@ export const featuredProjects = [
     tech: ['Python', 'OpenAI', 'Claude', 'Prompt design', 'Workflow automation'],
     link: 'https://github.com/Konstantinos-Sakellariou/agenic_emailing_system',
   },
-  {
-    title: 'Hotel Recommendation System',
-    highlight: 'Recommendation systems / Preference modeling',
-    summary:
-      'A recommendation project built around collaborative filtering, feature engineering, and the challenge of modeling preference from sparse behavior.',
-    problem:
-      'Travel recommendations depend on incomplete user signals, contextual intent, and ranking tradeoffs. The core challenge was learning how to represent preference in a more useful way than popularity alone.',
-    role:
-      'Explored the Expedia competition dataset, engineered useful signals, and evaluated recommendation strategies with a focus on preference modeling and ranking quality.',
-    approach:
-      'Worked through user-item behavior patterns, feature engineering choices, and recommendation logic to build a stronger baseline for personalization in a sparse-data environment.',
-    outcome:
-      'Strengthened the project into a solid recommender case study and a useful reference point for how I think about user behavior, ranking logic, and signal quality.',
-    takeaway:
-      'Recommendation work is as much about understanding behavior and context as it is about choosing the algorithm that produces the final ranking.',
-    tech: ['Machine learning', 'Collaborative filtering', 'Feature engineering', 'Jupyter'],
-    link: 'https://github.com/Konstantinos-Sakellariou/Recommender-system-Expedia-competition',
-  },
 ]
 
 export const archiveProjects = [
   {
+    title: 'Hotel Recommendation System',
+    summaryTag: 'Recommendation systems / Earlier project',
+    summary:
+      'A collaborative-filtering and feature-engineering project around preference modeling, ranking, and the sparse-data challenges behind travel recommendations.',
+    tech: ['Machine learning', 'Collaborative filtering', 'Feature engineering'],
+    link: 'https://github.com/Konstantinos-Sakellariou/Recommender-system-Expedia-competition',
+  },
+  {
     title: 'Plant Health Detection CNN',
-    summaryTag: 'Computer vision / Applied ML',
+    summaryTag: 'Computer vision / Earlier applied ML work',
     summary:
       'A TensorFlow-based plant classification project with a desktop GUI that makes model predictions easier to inspect and use.',
     tech: ['TensorFlow', 'Python', 'Tkinter'],
@@ -132,14 +140,6 @@ export const archiveProjects = [
       'A project aimed at lowering the barrier to ML and exploratory reporting by making model creation more accessible to non-coders.',
     tech: ['Python', 'ML automation', 'Web framework'],
     link: 'https://github.com/Konstantinos-Sakellariou/nodatascienceapp',
-  },
-  {
-    title: 'Claude Code Team Kit',
-    summaryTag: 'Developer workflows / Agents',
-    summary:
-      'A tooling-focused repository around better agentic development workflows, team coordination, and practical automation patterns.',
-    tech: ['Shell', 'Automation', 'Agentic tooling'],
-    link: 'https://github.com/Konstantinos-Sakellariou/claude-team-kit',
   },
 ]
 
