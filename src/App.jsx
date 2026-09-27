@@ -66,7 +66,7 @@ function App() {
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_18%_12%,rgba(56,189,248,0.28),transparent_26%),radial-gradient(circle_at_82%_8%,rgba(99,102,241,0.2),transparent_32%),radial-gradient(circle_at_50%_120%,rgba(14,165,233,0.16),transparent_38%)]" />
 
       <header className="sticky top-0 z-50 border-b border-[var(--line)] bg-[var(--panel-nav)] backdrop-blur-xl">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3 sm:py-4 sm:px-6 lg:px-8">
           <a href="#hero" className="group">
             <div className="flex items-center gap-3">
               <div className="flex h-11 w-11 items-center justify-center rounded-full border border-[var(--line-strong)] bg-[var(--panel-strong)] shadow-[0_12px_28px_rgba(2,6,23,0.36)] transition-transform duration-300 group-hover:-translate-y-0.5">
@@ -74,9 +74,9 @@ function App() {
                   KS
                 </span>
               </div>
-              <div className="hidden sm:block">
+              <div>
                 <p className="text-sm font-semibold text-[var(--ink)]">Kostas Sakellariou</p>
-                <p className="font-mono-ui text-[10px] uppercase tracking-[0.24em] text-[var(--muted)]">
+                <p className="font-label hidden text-[10px] text-[var(--muted)] sm:block">
                   {site.brandLine}
                 </p>
               </div>
@@ -136,7 +136,7 @@ function App() {
         )}
       </header>
 
-      <main className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8">
+      <main className="mx-auto max-w-6xl pb-16 sm:px-6 lg:px-8">
         <HeroSection hero={hero} />
         <MetricsStrip metrics={metrics} />
         <ImpactSection impact={impact} />

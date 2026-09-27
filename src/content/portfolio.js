@@ -16,10 +16,11 @@ export const site = {
 }
 
 export const hero = {
-  eyebrow: 'Data Science & AI leadership · Netherlands',
+  eyebrow: 'Data Science & AI leadership',
+  location: 'Netherlands',
   title: 'Kostas Sakellariou',
   tagline:
-    'I lead data science and AI that moves revenue, retention, and safer play, and I’m building toward the Chief AI Officer seat.',
+    'I lead data science and AI teams that improve revenue, retention, and safer play.',
   description:
     'Head of Data Science & AI at Entain NCE, where I built and lead the data science team. My focus is turning AI from pilots into products the business runs on: a clear strategy, measurable value, and responsible by design.',
   primaryCta: {
@@ -37,7 +38,7 @@ export const hero = {
   focusAreas: ['AI strategy', 'Team leadership', 'GenAI adoption', 'Responsible AI', 'iGaming & sports'],
   notes: [
     { label: 'Now', value: 'Head of Data Science & AI, Entain NCE' },
-    { label: 'Next', value: 'Chief AI Officer track' },
+    { label: 'Focus', value: 'AI strategy, adoption, and governance' },
   ],
   signature: {
     label: 'Operating belief',
@@ -163,14 +164,14 @@ export const journey = {
       draft: true,
     },
   ],
-  northStar: {
-    label: 'North star',
-    title: 'Chief AI Officer',
-    text: 'I want to own how an organisation creates value with AI end to end: strategy, people, platforms, and governance. Every role until then is a deliberate step toward that.',
+  focus: {
+    label: 'What motivates me',
+    title: 'AI that works for the whole organisation',
+    text: 'The work I find most rewarding is helping an organisation create value with AI end to end: strategy, people, platforms, and governance working together rather than in silos.',
     steps: [
-      'Enterprise AI strategy across business units',
-      'AI governance and risk at board level',
-      'AI literacy at scale across the organisation',
+      'Connecting AI initiatives to company-wide priorities',
+      'Governance that builds trust with regulators and customers',
+      'Growing AI literacy beyond the data team',
     ],
   },
 }
@@ -250,7 +251,7 @@ export const handsOn = {
 export const contact = {
   title: 'Let’s talk about data and AI leadership.',
   description:
-    'Open to senior roles such as Head of AI, Director of Data & AI, and Chief AI Officer, and to conversations with leaders scaling AI in regulated, data-rich businesses.',
+    'Always happy to talk with leaders scaling data and AI in regulated, data-rich businesses, whether about a senior role, a shared challenge, or an exchange of ideas.',
   note: 'Based in the Netherlands and open to the right opportunity elsewhere. CV available on request by email.',
   primaryCta: {
     label: 'Send an email',

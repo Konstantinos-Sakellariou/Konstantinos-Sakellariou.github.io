@@ -24,8 +24,8 @@
   .hero-ball-shell {
     position: relative;
     display: grid;
-    min-height: 12rem;
-    padding-inline: 0.5rem;
+    min-height: 8.5rem;
+    padding-inline: 0.25rem;
     place-items: center;
   }
 
@@ -42,8 +42,8 @@
 
   .hero-ball-orbit {
     position: relative;
-    width: 10.5rem;
-    height: 10.5rem;
+    width: 7rem;
+    height: 7rem;
     animation: heroFloat 7s ease-in-out infinite;
   }
 
@@ -120,6 +120,18 @@
 
     50% {
       transform: translateY(-0.4rem);
+    }
+  }
+
+  @media (min-width: 640px) {
+    .hero-ball-shell {
+      min-height: 12rem;
+      padding-inline: 0.5rem;
+    }
+
+    .hero-ball-orbit {
+      width: 10.5rem;
+      height: 10.5rem;
     }
   }
 

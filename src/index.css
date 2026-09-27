@@ -1,4 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700;800&family=Sora:wght@400;600;700;800&display=swap');
 @import 'tailwindcss';
 
 :root {
@@ -21,9 +20,7 @@
   --signal: #f59e0b;
   --signal-strong: #fdba74;
   --signal-soft: rgba(245, 158, 11, 0.12);
-  --font-body: 'Manrope', sans-serif;
-  --font-display: 'Sora', sans-serif;
-  --font-mono: 'IBM Plex Mono', monospace;
+  --font-body: 'Inter Variable', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
   color: var(--ink);
   background: var(--paper);
   font-family: var(--font-body);
@@ -84,10 +81,15 @@
   }
 }
 
-.font-display {
-  font-family: var(--font-display);
-}
+@layer components {
+  .font-display {
+    font-weight: 600;
+    letter-spacing: -0.022em;
+  }
 
-.font-mono-ui {
-  font-family: var(--font-mono);
+  .font-label {
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
 }
