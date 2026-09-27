@@ -92,28 +92,30 @@ export function HeroSection({ hero }) {
         </div>
 
         <div className="relative">
-          <div className="relative min-h-[32rem] overflow-hidden rounded-[2rem] border border-[var(--line-strong)] bg-[linear-gradient(180deg,rgba(11,24,50,0.94),rgba(5,11,24,0.96))] px-6 py-8 shadow-[0_28px_80px_rgba(2,6,23,0.34)] sm:px-8">
-            <div className="absolute inset-x-8 top-8 h-px bg-[linear-gradient(90deg,transparent,rgba(125,211,252,0.18),transparent)]" />
-            <div className="absolute inset-y-8 right-8 w-px bg-[linear-gradient(180deg,transparent,rgba(125,211,252,0.12),transparent)]" />
+          <div className="relative flex flex-col gap-6 overflow-hidden rounded-[2rem] border border-[var(--line-strong)] bg-[linear-gradient(180deg,rgba(11,24,50,0.94),rgba(5,11,24,0.96))] p-6 shadow-[0_28px_80px_rgba(2,6,23,0.34)] sm:min-h-[28rem] sm:p-8">
+            <div className="pointer-events-none absolute inset-x-8 top-8 h-px bg-[linear-gradient(90deg,transparent,rgba(125,211,252,0.18),transparent)]" />
+            <div className="pointer-events-none absolute inset-y-8 right-8 w-px bg-[linear-gradient(180deg,transparent,rgba(125,211,252,0.12),transparent)]" />
 
-            <div className="hidden max-w-[14rem] gap-3 sm:absolute sm:left-6 sm:top-6 sm:grid">
-              {hero.notes.map((note, index) => (
-                <div
-                  key={note.label}
-                  className="hero-note rounded-2xl border border-[var(--line)] bg-[var(--panel)] px-4 py-3 shadow-[0_14px_30px_rgba(2,6,23,0.28)]"
-                  style={{ animationDelay: `${index * 1.4}s` }}
-                >
-                  <p className="font-mono-ui text-[10px] uppercase tracking-[0.28em] text-[var(--signal)]">
-                    {note.label}
-                  </p>
-                  <p className="mt-1 text-sm text-[var(--ink)]">{note.value}</p>
-                </div>
-              ))}
+            <div className="relative grid items-center gap-6 sm:grid-cols-[minmax(0,1fr)_auto]">
+              <div className="hidden gap-3 sm:grid">
+                {hero.notes.map((note, index) => (
+                  <div
+                    key={note.label}
+                    className="hero-note rounded-2xl border border-[var(--line)] bg-[var(--panel)] px-4 py-3 shadow-[0_14px_30px_rgba(2,6,23,0.28)]"
+                    style={{ animationDelay: `${index * 1.4}s` }}
+                  >
+                    <p className="font-mono-ui text-[10px] uppercase tracking-[0.28em] text-[var(--signal)]">
+                      {note.label}
+                    </p>
+                    <p className="mt-1 text-sm text-[var(--ink)]">{note.value}</p>
+                  </div>
+                ))}
+              </div>
+
+              <SportsBall />
             </div>
 
-            <SportsBall className="sm:absolute sm:right-6 sm:top-6 sm:z-10" />
-
-            <div className="mx-auto mt-6 max-w-xs rounded-[1.5rem] border border-[var(--line)] bg-[var(--panel)] p-4 shadow-[0_18px_40px_rgba(2,6,23,0.28)] sm:ml-0 sm:mt-[16.5rem]">
+            <div className="relative rounded-[1.5rem] border border-[var(--line)] bg-[var(--panel)] p-4 shadow-[0_18px_40px_rgba(2,6,23,0.28)] sm:mt-auto">
               <p className="font-mono-ui text-[11px] uppercase tracking-[0.28em] text-[var(--muted)]">
                 Build signature
               </p>
@@ -122,8 +124,6 @@ export function HeroSection({ hero }) {
                 without losing sight of how decisions actually get made.
               </p>
             </div>
-
-            <div className="mt-6 grid gap-3 sm:hidden" />
           </div>
         </div>
       </div>
