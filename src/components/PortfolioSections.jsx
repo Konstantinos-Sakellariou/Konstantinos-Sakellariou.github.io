@@ -461,7 +461,7 @@ export function ContactSection({ contact }) {
           </p>
           <a
             href={contact.primaryCta.href}
-            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--accent-strong)] px-6 py-3 text-sm font-semibold text-white transition hover:-translate-y-0.5 hover:bg-[var(--accent)]"
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-[var(--accent)] px-6 py-3 text-sm font-semibold text-slate-950 transition hover:-translate-y-0.5 hover:bg-[var(--accent-strong)]"
           >
             {contact.primaryCta.label}
             <ArrowRight size={16} />
