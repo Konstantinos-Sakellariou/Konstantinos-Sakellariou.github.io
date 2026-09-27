@@ -1,12 +1,13 @@
 import {
   ArrowRight,
-  BarChart3,
-  BrainCircuit,
+  BookOpen,
+  Compass,
   ExternalLink,
+  GraduationCap,
+  Layers,
   Mail,
-  Radar,
-  Target,
-  Workflow,
+  ShieldCheck,
+  Users,
 } from 'lucide-react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import SportsBall from './SportsBall'
@@ -70,12 +71,10 @@ export function HeroSection({ hero }) {
             </a>
             <a
               href={hero.tertiaryCta.href}
-              target="_blank"
-              rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-2 py-3 text-sm text-[var(--muted)] transition hover:text-[var(--ink)]"
             >
               {hero.tertiaryCta.label}
-              <ExternalLink size={14} />
+              <Mail size={14} />
             </a>
           </div>
 
@@ -97,7 +96,7 @@ export function HeroSection({ hero }) {
             <div className="pointer-events-none absolute inset-y-8 right-8 w-px bg-[linear-gradient(180deg,transparent,rgba(125,211,252,0.12),transparent)]" />
 
             <div className="relative grid items-center gap-6 sm:grid-cols-[minmax(0,1fr)_auto]">
-              <div className="hidden gap-3 sm:grid">
+              <div className="grid gap-3">
                 {hero.notes.map((note, index) => (
                   <div
                     key={note.label}
@@ -117,11 +116,10 @@ export function HeroSection({ hero }) {
 
             <div className="relative rounded-[1.5rem] border border-[var(--line)] bg-[var(--panel)] p-4 shadow-[0_18px_40px_rgba(2,6,23,0.28)] sm:mt-auto">
               <p className="font-mono-ui text-[11px] uppercase tracking-[0.28em] text-[var(--muted)]">
-                Build signature
+                {hero.signature.label}
               </p>
-              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-                Systems that blend data products, recommender thinking, and AI-native workflows
-                without losing sight of how decisions actually get made.
+              <p className="font-display mt-3 text-base leading-7 text-[var(--ink)]">
+                {hero.signature.text}
               </p>
             </div>
           </div>
@@ -131,308 +129,257 @@ export function HeroSection({ hero }) {
   )
 }
 
-export function ProofStrip({ proofPoints }) {
+
+function DraftTag() {
+  return (
+    <span
+      title="Illustrative placeholder: replace with a real figure before publishing"
+      className="inline-flex items-center rounded-full border border-dashed border-[var(--signal)] px-2 py-0.5 font-mono-ui text-[9px] uppercase tracking-[0.2em] text-[var(--signal)]"
+    >
+      Draft
+    </span>
+  )
+}
+
+function Section({ id, nav, className = '', children }) {
+  return (
+    <section
+      id={id}
+      data-nav={nav ?? id}
+      className={`scroll-mt-24 border-x border-b border-[var(--line)] bg-[var(--panel-soft)] px-6 py-14 sm:px-8 sm:py-16 lg:px-12 ${className}`.trim()}
+    >
+      {children}
+    </section>
+  )
+}
+
+export function MetricsStrip({ metrics }) {
   return (
     <section
       data-nav="hero"
-      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[var(--panel-soft)]"
+      className="border-x border-b border-[var(--line)] bg-[var(--panel-soft)]"
     >
-      <div className="grid gap-px bg-[var(--line)] md:grid-cols-2 xl:grid-cols-4">
-        {proofPoints.map((point) => (
-          <article
-            key={point.label}
-            className="bg-[var(--panel)] px-6 py-6 sm:px-8 sm:py-7"
-          >
-            <p className="font-mono-ui text-[11px] uppercase tracking-[0.28em] text-[var(--muted)]">
-              {point.label}
-            </p>
-            <p className="mt-3 text-xl leading-tight text-[var(--ink)]">{point.value}</p>
-            <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{point.description}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-  )
-}
-
-function CaseStudyCard({ project, index }) {
-  return (
-    <article className="rounded-[2rem] border border-[var(--line-strong)] bg-[var(--panel)] p-6 shadow-[0_24px_60px_rgba(2,6,23,0.34)] sm:p-8">
-      <div className="flex flex-col gap-4 border-b border-[var(--line)] pb-6 sm:flex-row sm:items-start sm:justify-between">
-        <div>
-          <p className="font-mono-ui text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">
-            {String(index + 1).padStart(2, '0')} / {project.highlight}
-          </p>
-          <h3 className="font-display mt-3 text-2xl text-[var(--ink)] sm:text-[2rem]">
-            {project.title}
-          </h3>
-          <p className="mt-3 max-w-2xl text-base leading-7 text-[var(--muted)]">
-            {project.summary}
-          </p>
-        </div>
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 self-start rounded-full border border-[var(--line)] bg-[var(--panel-strong)] px-4 py-2 text-sm text-[var(--ink)] transition hover:border-[var(--accent)] hover:text-[var(--accent-strong)]"
-        >
-          View repository
-          <ExternalLink size={15} />
-        </a>
-      </div>
-
-      <div className="mt-6 grid gap-6 lg:grid-cols-2">
-        <div className="space-y-5">
-          <div>
-            <p className="font-mono-ui text-[11px] uppercase tracking-[0.26em] text-[var(--signal)]">
-              Problem
-            </p>
-            <p className="mt-2 text-sm leading-7 text-[var(--muted)]">{project.problem}</p>
-          </div>
-          <div>
-            <p className="font-mono-ui text-[11px] uppercase tracking-[0.26em] text-[var(--signal)]">
-              Role
-            </p>
-            <p className="mt-2 text-sm leading-7 text-[var(--muted)]">{project.role}</p>
-          </div>
-          <div>
-            <p className="font-mono-ui text-[11px] uppercase tracking-[0.26em] text-[var(--signal)]">
-              Approach
-            </p>
-            <p className="mt-2 text-sm leading-7 text-[var(--muted)]">{project.approach}</p>
-          </div>
-        </div>
-
-        <div className="space-y-5">
-          <div>
-            <p className="font-mono-ui text-[11px] uppercase tracking-[0.26em] text-[var(--accent)]">
-              Outcome
-            </p>
-            <p className="mt-2 text-sm leading-7 text-[var(--muted)]">{project.outcome}</p>
-          </div>
-          <div>
-            <p className="font-mono-ui text-[11px] uppercase tracking-[0.26em] text-[var(--accent)]">
-              Key takeaway
-            </p>
-            <p className="mt-2 text-sm leading-7 text-[var(--muted)]">{project.takeaway}</p>
-          </div>
-          <div>
-            <p className="font-mono-ui text-[11px] uppercase tracking-[0.26em] text-[var(--muted)]">
-              Stack
-            </p>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {project.tech.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-[var(--line)] bg-[var(--accent-soft)] px-3 py-2 text-xs font-medium text-[var(--ink)]"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-  )
-}
-
-export function FeaturedProjectsSection({ projects }) {
-  return (
-    <section
-      id="featured-work"
-      data-nav="featured-work"
-      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[var(--panel-soft)] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
-    >
-      <SectionHeading
-        eyebrow="Featured work"
-        title="The projects that represent my strongest work right now."
-        description="A smaller set of case studies that feel the most relevant, polished, and representative of how I think."
-      />
-
-      <div className="mt-10 space-y-8">
-        {projects.map((project, index) => (
-          <CaseStudyCard key={project.title} project={project} index={index} />
-        ))}
-      </div>
-    </section>
-  )
-}
-
-export function ArchiveSection({ projects }) {
-  return (
-    <section
-      data-nav="featured-work"
-      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[var(--panel-soft)] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
-    >
-      <SectionHeading
-        eyebrow="Project archive"
-        title="Other projects I still want visible, just with lighter framing."
-        description="Useful supporting work and earlier experiments that add range, without needing the same level of documentation as the featured case studies."
-      />
-
-      <div className="mt-10 grid gap-6 lg:grid-cols-3">
-        {projects.map((project) => (
-          <article
-            key={project.title}
-            className="flex h-full flex-col rounded-[1.75rem] border border-[var(--line)] bg-[var(--panel)] p-6 shadow-[0_18px_42px_rgba(2,6,23,0.3)]"
-          >
-            <p className="font-mono-ui text-[11px] uppercase tracking-[0.26em] text-[var(--muted)]">
-              {project.summaryTag}
-            </p>
-            <h3 className="font-display mt-3 text-2xl text-[var(--ink)]">{project.title}</h3>
-            <p className="mt-3 flex-1 text-sm leading-7 text-[var(--muted)]">{project.summary}</p>
-
-            <div className="mt-5 flex flex-wrap gap-2">
-              {project.tech.map((item) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-[var(--line)] bg-[var(--panel-strong)] px-3 py-2 text-xs text-[var(--ink)]"
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-[var(--accent-strong)] transition hover:text-[var(--accent)]"
-            >
-              Open repository
-              <ExternalLink size={15} />
-            </a>
-          </article>
-        ))}
-      </div>
-    </section>
-  )
-}
-
-export function AboutSection({ about }) {
-  return (
-    <section
-      id="about"
-      data-nav="about"
-      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[var(--panel-soft)] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
-    >
-      <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(300px,0.85fr)] lg:gap-14">
-        <div>
-          <SectionHeading
-            eyebrow="About / trajectory"
-            title={about.title}
-            description={about.intro}
-          />
-          <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--muted)] sm:text-lg">
-            {about.detail}
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            {about.signatureAreas.map((item) => (
-              <span
-                key={item}
-                className="rounded-full border border-[var(--line)] bg-[var(--signal-soft)] px-4 py-2 text-sm text-[var(--ink)]"
-              >
-                {item}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        <div className="grid gap-4">
-          {about.panels.map((panel) => (
-            <article
-              key={panel.label}
-              className="rounded-[1.6rem] border border-[var(--line)] bg-[var(--panel)] p-5 shadow-[0_16px_36px_rgba(2,6,23,0.3)]"
-            >
-              <p className="font-mono-ui text-[11px] uppercase tracking-[0.26em] text-[var(--accent)]">
-                {panel.label}
+      <div className="grid gap-px bg-[var(--line)] sm:grid-cols-2 xl:grid-cols-4">
+        {metrics.map((metric) => (
+          <article key={metric.label} className="bg-[var(--panel)] px-6 py-6 sm:px-8 sm:py-7">
+            <div className="flex items-center justify-between gap-3">
+              <p className="font-mono-ui text-[11px] uppercase tracking-[0.28em] text-[var(--muted)]">
+                {metric.label}
               </p>
-              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{panel.text}</p>
-            </article>
-          ))}
-        </div>
+              {metric.draft ? <DraftTag /> : null}
+            </div>
+            <p className="font-display mt-3 text-4xl text-[var(--accent)]">{metric.value}</p>
+            <p className="mt-2 text-sm leading-6 text-[var(--muted)]">{metric.description}</p>
+          </article>
+        ))}
       </div>
     </section>
   )
 }
 
-const capabilityIcons = [BarChart3, BrainCircuit, Target, Workflow, Radar]
-
-export function CapabilitiesSection({ capabilities }) {
+export function ImpactSection({ impact }) {
   return (
-    <section
-      data-nav="about"
-      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[var(--panel-soft)] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
-    >
+    <Section id="impact">
       <SectionHeading
-        eyebrow="Capabilities"
-        title="What I’m strongest at building and improving."
-        description="Not just a stack inventory. These are the kinds of systems and problems I like to own."
+        eyebrow="Selected impact"
+        title="AI that shows up in the numbers the business already tracks."
+        description="A few examples of what my team and I have delivered, each framed as the situation, what I led, and the result."
+      />
+
+      <div className="mt-10 grid gap-6 lg:grid-cols-2">
+        {impact.map((item, index) => (
+          <article
+            key={item.title}
+            className="flex flex-col rounded-[1.75rem] border border-[var(--line-strong)] bg-[var(--panel)] p-6 shadow-[0_24px_60px_rgba(2,6,23,0.3)] sm:p-8"
+          >
+            <p className="font-mono-ui text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">
+              {String(index + 1).padStart(2, '0')} / {item.tag}
+            </p>
+            <h3 className="font-display mt-3 text-2xl leading-tight text-[var(--ink)]">
+              {item.title}
+            </h3>
+
+            <div className="mt-5 space-y-4 text-sm leading-7 text-[var(--muted)]">
+              <p>
+                <span className="font-mono-ui mr-2 text-[11px] uppercase tracking-[0.2em] text-[var(--signal)]">
+                  Context
+                </span>
+                {item.context}
+              </p>
+              <p>
+                <span className="font-mono-ui mr-2 text-[11px] uppercase tracking-[0.2em] text-[var(--signal)]">
+                  What I led
+                </span>
+                {item.led}
+              </p>
+            </div>
+
+            <div className="mt-auto pt-6">
+              <div className="flex items-end justify-between gap-4 border-t border-[var(--line)] pt-5">
+                <div>
+                  <p className="font-display text-3xl text-[var(--accent)]">{item.metric.value}</p>
+                  <p className="mt-1 text-sm text-[var(--ink)]">{item.metric.label}</p>
+                </div>
+                {item.metric.draft ? <DraftTag /> : null}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </Section>
+  )
+}
+
+const leadershipIcons = [Compass, Users, Layers, BookOpen, ShieldCheck, GraduationCap]
+
+export function LeadershipSection({ leadership }) {
+  return (
+    <Section id="leadership">
+      <SectionHeading
+        eyebrow="How I lead"
+        title="Six things a data and AI function needs to create value at scale."
+        description="The model is rarely the bottleneck. Strategy, people, operating model, and trust usually are."
       />
 
       <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {capabilities.map((capability, index) => {
-          const Icon = capabilityIcons[index % capabilityIcons.length]
+        {leadership.map((pillar, index) => {
+          const Icon = leadershipIcons[index % leadershipIcons.length]
 
           return (
             <article
-              key={capability.title}
-              className="rounded-[1.75rem] border border-[var(--line)] bg-[var(--panel)] p-5 shadow-[0_18px_42px_rgba(2,6,23,0.28)]"
+              key={pillar.title}
+              className="flex flex-col rounded-[1.75rem] border border-[var(--line)] bg-[var(--panel)] p-6 shadow-[0_18px_42px_rgba(2,6,23,0.28)]"
             >
               <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent-strong)]">
                 <Icon size={22} />
               </div>
-              <h3 className="font-display mt-5 text-lg leading-tight text-[var(--ink)] sm:text-xl">
-                {capability.title}
+              <h3 className="font-display mt-5 text-xl leading-tight text-[var(--ink)]">
+                {pillar.title}
               </h3>
-              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{capability.description}</p>
-              <p className="mt-4 text-xs uppercase tracking-[0.18em] text-[var(--muted)]">
-                {capability.tools}
+              <p className="mt-3 flex-1 text-sm leading-7 text-[var(--muted)]">{pillar.description}</p>
+              <p className="mt-5 border-t border-[var(--line)] pt-4 text-xs uppercase tracking-[0.16em] text-[var(--accent-strong)]">
+                {pillar.practice}
               </p>
             </article>
           )
         })}
       </div>
-    </section>
+    </Section>
   )
 }
 
-export function ExploringSection({ explorations }) {
+export function JourneySection({ journey }) {
+  const { timeline, northStar } = journey
+
   return (
-    <section
-      id="exploring"
-      data-nav="exploring"
-      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[var(--panel-soft)] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
-    >
+    <Section id="journey">
       <SectionHeading
-        eyebrow="Exploring now"
-        title="Ideas I keep returning to because they feel strategically interesting."
-        description="This section is less about unfinished work and more about where my curiosity is compounding."
+        eyebrow="Journey"
+        title="Where I am, and where I am going."
+        description="I am open about the ambition: I want to lead AI for a whole organisation."
       />
 
-      <div className="mt-10 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-        {explorations.map((item, index) => {
-          const toneClass =
-            index % 2 === 0
-              ? 'bg-[rgba(15,118,110,0.06)] text-[var(--accent-strong)]'
-              : 'bg-[rgba(197,108,43,0.09)] text-[var(--signal-strong)]'
+      <div className="mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.9fr)] lg:gap-12">
+        <ol className="relative space-y-8 border-l border-[var(--line-strong)] pl-8">
+          {timeline.map((entry) => (
+            <li key={entry.role} className="relative">
+              <span className="absolute -left-[2.35rem] top-1.5 h-3 w-3 rounded-full border-2 border-[var(--accent)] bg-[var(--paper)]" />
+              <div className="flex flex-wrap items-center gap-3">
+                <p className="font-mono-ui text-[11px] uppercase tracking-[0.28em] text-[var(--accent)]">
+                  {entry.period}
+                </p>
+                {entry.draft ? <DraftTag /> : null}
+              </div>
+              <h3 className="font-display mt-2 text-2xl text-[var(--ink)]">{entry.role}</h3>
+              <p className="mt-1 text-sm font-semibold text-[var(--ink-soft)]">{entry.org}</p>
+              <p className="mt-3 max-w-xl text-sm leading-7 text-[var(--muted)]">{entry.detail}</p>
+            </li>
+          ))}
+        </ol>
 
-          return (
-            <article
-              key={item.title}
-              className="rounded-[1.75rem] border border-[var(--line)] bg-[var(--panel)] p-6 shadow-[0_18px_42px_rgba(2,6,23,0.28)]"
-            >
-              <span className={`inline-flex rounded-full px-3 py-2 text-xs uppercase tracking-[0.22em] ${toneClass}`}>
-                {item.tag}
-              </span>
-              <h3 className="font-display mt-4 text-2xl text-[var(--ink)]">{item.title}</h3>
-              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.summary}</p>
-            </article>
-          )
-        })}
+        <article className="rounded-[1.75rem] border border-[var(--line-strong)] bg-[linear-gradient(160deg,rgba(56,189,248,0.12),rgba(10,20,41,0.9)_55%)] p-6 shadow-[0_24px_60px_rgba(2,6,23,0.34)] sm:p-8">
+          <p className="font-mono-ui text-[11px] uppercase tracking-[0.28em] text-[var(--signal)]">
+            {northStar.label}
+          </p>
+          <h3 className="font-display mt-3 text-3xl text-[var(--ink)]">{northStar.title}</h3>
+          <p className="mt-4 text-sm leading-7 text-[var(--muted)]">{northStar.text}</p>
+          <ul className="mt-6 space-y-3">
+            {northStar.steps.map((step) => (
+              <li key={step} className="flex gap-3 text-sm leading-6 text-[var(--ink)]">
+                <ArrowRight size={16} className="mt-1 shrink-0 text-[var(--accent)]" />
+                {step}
+              </li>
+            ))}
+          </ul>
+        </article>
       </div>
-    </section>
+    </Section>
+  )
+}
+
+export function PerspectivesSection({ perspectives }) {
+  return (
+    <Section id="perspectives">
+      <SectionHeading
+        eyebrow="Perspectives"
+        title="Positions I am willing to defend."
+        description="Short versions of how I think about AI leadership."
+      />
+
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
+        {perspectives.map((item, index) => (
+          <article
+            key={item.title}
+            className="rounded-[1.75rem] border border-[var(--line)] bg-[var(--panel)] p-6 shadow-[0_18px_42px_rgba(2,6,23,0.28)]"
+          >
+            <p className="font-mono-ui text-[11px] uppercase tracking-[0.28em] text-[var(--signal)]">
+              {String(index + 1).padStart(2, '0')}
+            </p>
+            <h3 className="font-display mt-3 text-xl leading-snug text-[var(--ink)]">{item.title}</h3>
+            <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </Section>
+  )
+}
+
+export function HandsOnSection({ handsOn }) {
+  return (
+    <Section id="hands-on">
+      <SectionHeading eyebrow="Hands-on" title="I still build." description={handsOn.intro} />
+
+      <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {handsOn.projects.map((project) => (
+          <a
+            key={project.title}
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group flex flex-col rounded-[1.5rem] border border-[var(--line)] bg-[var(--panel)] p-5 transition hover:-translate-y-0.5 hover:border-[var(--line-strong)]"
+          >
+            <div className="flex items-start justify-between gap-3">
+              <p className="font-mono-ui text-[11px] uppercase tracking-[0.24em] text-[var(--muted)]">
+                {project.tag}
+              </p>
+              <FaGithub size={18} className="shrink-0 text-[var(--muted)] transition group-hover:text-[var(--ink)]" />
+            </div>
+            <h3 className="font-display mt-3 text-lg text-[var(--ink)]">{project.title}</h3>
+            <p className="mt-2 flex-1 text-sm leading-6 text-[var(--muted)]">{project.summary}</p>
+            <div className="mt-4 flex flex-wrap gap-2">
+              {project.tech.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-full border border-[var(--line)] bg-[var(--panel-strong)] px-3 py-1 text-xs text-[var(--ink-soft)]"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+          </a>
+        ))}
+      </div>
+    </Section>
   )
 }
 
@@ -444,18 +391,13 @@ const contactIconMap = {
 
 export function ContactSection({ contact }) {
   return (
-    <section
+    <Section
       id="contact"
-      data-nav="contact"
-      className="scroll-mt-24 border-x border-b border-[var(--line)] bg-[linear-gradient(180deg,rgba(10,20,41,0.88),rgba(5,11,24,0.98))] px-6 py-14 sm:px-8 sm:py-16 lg:px-12"
+      className="bg-[linear-gradient(180deg,rgba(10,20,41,0.88),rgba(5,11,24,0.98))]"
     >
       <div className="grid gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(320px,0.85fr)] lg:gap-14">
         <div>
-          <SectionHeading
-            eyebrow="Contact"
-            title={contact.title}
-            description={contact.description}
-          />
+          <SectionHeading eyebrow="Contact" title={contact.title} description={contact.description} />
           <p className="mt-6 max-w-2xl text-base leading-8 text-[var(--muted)] sm:text-lg">
             {contact.note}
           </p>
@@ -480,31 +422,38 @@ export function ContactSection({ contact }) {
                 rel={link.external ? 'noopener noreferrer' : undefined}
                 className="group flex items-center gap-4 rounded-[1.6rem] border border-[var(--line)] bg-[var(--panel)] px-5 py-5 shadow-[0_16px_36px_rgba(2,6,23,0.3)] transition hover:-translate-y-0.5 hover:border-[var(--line-strong)]"
               >
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent-strong)] transition group-hover:bg-[rgba(15,118,110,0.16)]">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--accent-soft)] text-[var(--accent-strong)]">
                   <Icon size={22} />
                 </div>
                 <div className="flex-1">
                   <p className="text-base font-semibold text-[var(--ink)]">{link.label}</p>
-                  <p className="mt-1 text-sm leading-7 text-[var(--muted)]">{link.description}</p>
+                  <p className="mt-1 text-sm leading-6 text-[var(--muted)]">{link.description}</p>
                 </div>
-                <ExternalLink
-                  size={16}
-                  className="text-[var(--muted)] transition group-hover:text-[var(--ink)]"
-                />
+                {link.external ? (
+                  <ExternalLink
+                    size={16}
+                    className="text-[var(--muted)] transition group-hover:text-[var(--ink)]"
+                  />
+                ) : (
+                  <ArrowRight
+                    size={16}
+                    className="text-[var(--muted)] transition group-hover:text-[var(--ink)]"
+                  />
+                )}
               </a>
             )
           })}
         </div>
       </div>
-    </section>
+    </Section>
   )
 }
 
-export function SiteFooter() {
+export function SiteFooter({ text }) {
   return (
     <footer className="border-t border-[var(--line)] px-4 py-8 text-center sm:px-6 lg:px-8">
       <p className="text-sm text-[var(--muted)]">
-        Designed and built with React, Tailwind CSS, and GitHub Pages.
+        © {new Date().getFullYear()} Kostas Sakellariou · {text}
       </p>
     </footer>
   )

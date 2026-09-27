@@ -2,12 +2,12 @@
 
 Personal portfolio site for [konstantinos-sakellariou.github.io](https://konstantinos-sakellariou.github.io).
 
-The site is built with React, Vite, Tailwind CSS, and GitHub Pages. It is designed as a single-page portfolio focused on:
+The site is built with React, Vite, Tailwind CSS, and GitHub Pages. It is a single-page profile positioning Kostas as a data science and AI leader, covering:
 
-- personal positioning and profile
-- featured project case studies
-- selected project archive
-- AI, analytics, sports, and iGaming themes
+- headline metrics and selected business impact
+- leadership approach and career journey (toward Chief AI Officer)
+- perspectives on AI leadership
+- hands-on projects from GitHub
 
 ## Stack
 
@@ -75,5 +75,7 @@ Workflow file:
 ## Notes
 
 - Content lives in `src/content/portfolio.js`
+- Any content item with `draft: true` shows a visible "Draft" tag on the page. Replace the illustrative value with a real one and remove the flag before relying on it publicly.
+- Social preview image: `public/og-image.png` (1200×630); page metadata lives in `index.html`
 - Global look and motion live in `src/index.css` and `src/App.css`
 - The hero sports ball animation is implemented in `src/components/SportsBall.jsx`

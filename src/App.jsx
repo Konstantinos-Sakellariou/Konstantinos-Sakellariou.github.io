@@ -2,26 +2,27 @@ import { useEffect, useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import './App.css'
 import {
-  AboutSection,
-  ArchiveSection,
-  CapabilitiesSection,
   ContactSection,
-  ExploringSection,
-  FeaturedProjectsSection,
+  HandsOnSection,
   HeroSection,
-  ProofStrip,
+  ImpactSection,
+  JourneySection,
+  LeadershipSection,
+  MetricsStrip,
+  PerspectivesSection,
   SiteFooter,
 } from './components/PortfolioSections'
 import {
-  about,
-  archiveProjects,
-  capabilities,
   contact,
-  explorations,
-  featuredProjects,
+  handsOn,
   hero,
+  impact,
+  journey,
+  leadership,
+  metrics,
   navigation,
-  proofPoints,
+  perspectives,
+  site,
 } from './content/portfolio'
 
 function App() {
@@ -59,7 +60,7 @@ function App() {
   const handleNavClick = () => setMobileMenuOpen(false)
 
   return (
-    <div className="relative isolate overflow-x-hidden bg-[var(--paper)] text-[var(--ink)]">
+    <div className="relative isolate overflow-x-clip bg-[var(--paper)] text-[var(--ink)]">
       <div className="cosmos-stars pointer-events-none fixed inset-0 -z-30 opacity-60" />
       <div className="editorial-grid pointer-events-none fixed inset-0 -z-20 opacity-60" />
       <div className="pointer-events-none fixed inset-0 -z-10 bg-[radial-gradient(circle_at_18%_12%,rgba(56,189,248,0.28),transparent_26%),radial-gradient(circle_at_82%_8%,rgba(99,102,241,0.2),transparent_32%),radial-gradient(circle_at_50%_120%,rgba(14,165,233,0.16),transparent_38%)]" />
@@ -74,17 +75,15 @@ function App() {
                 </span>
               </div>
               <div className="hidden sm:block">
-                <p className="font-mono-ui text-[11px] uppercase tracking-[0.32em] text-[var(--muted)]">
-                  Portfolio
-                </p>
-                <p className="text-sm text-[var(--ink)]">
-                  AI, analytics, and intelligent systems
+                <p className="text-sm font-semibold text-[var(--ink)]">Kostas Sakellariou</p>
+                <p className="font-mono-ui text-[10px] uppercase tracking-[0.24em] text-[var(--muted)]">
+                  {site.brandLine}
                 </p>
               </div>
             </div>
           </a>
 
-          <nav className="hidden items-center gap-2 md:flex">
+          <nav className="hidden items-center gap-1 md:flex">
             {navigation.map((item) => {
               const isActive = activeSection === item.id
 
@@ -92,7 +91,7 @@ function App() {
                 <a
                   key={item.id}
                   href={`#${item.id}`}
-                  className={`rounded-full px-4 py-2 text-sm transition-all duration-300 ${
+                  className={`rounded-full px-3 py-2 text-sm transition-all lg:px-4 duration-300 ${
                     isActive
                       ? 'bg-[var(--accent-soft)] text-[var(--accent-strong)] shadow-[inset_0_0_0_1px_rgba(103,232,249,0.18)]'
                       : 'text-[var(--muted)] hover:bg-[var(--panel-strong)] hover:text-[var(--ink)]'
@@ -139,16 +138,16 @@ function App() {
 
       <main className="mx-auto max-w-6xl px-4 pb-16 sm:px-6 lg:px-8">
         <HeroSection hero={hero} />
-        <ProofStrip proofPoints={proofPoints} />
-        <FeaturedProjectsSection projects={featuredProjects} />
-        <ArchiveSection projects={archiveProjects} />
-        <AboutSection about={about} />
-        <CapabilitiesSection capabilities={capabilities} />
-        <ExploringSection explorations={explorations} />
+        <MetricsStrip metrics={metrics} />
+        <ImpactSection impact={impact} />
+        <LeadershipSection leadership={leadership} />
+        <JourneySection journey={journey} />
+        <PerspectivesSection perspectives={perspectives} />
+        <HandsOnSection handsOn={handsOn} />
         <ContactSection contact={contact} />
       </main>
 
-      <SiteFooter />
+      <SiteFooter text={site.footer} />
     </div>
   )
 }
