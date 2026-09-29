@@ -2,12 +2,12 @@
 
 Personal portfolio site for [konstantinos-sakellariou.github.io](https://konstantinos-sakellariou.github.io).
 
-The site is built with React, Vite, Tailwind CSS, and GitHub Pages. It is a single-page profile positioning Kostas as a data science and AI leader, covering:
+The site is built with React, Vite, Tailwind CSS, and GitHub Pages. It is a small multi-page site positioning Kostas as a data science and AI leader:
 
-- headline metrics and selected business impact
-- leadership approach and career journey (toward Chief AI Officer)
-- perspectives on AI leadership
-- hands-on projects from GitHub
+- `/` home: hero and highlights, selected impact, how I lead, contact
+- `/about/`: background, journey, what motivates me
+- `/projects/`: hands-on projects
+- `/writing/`: principles and (soon) articles
 
 ## Stack
 
@@ -46,15 +46,15 @@ npm run lint
 ## Project Structure
 
 ```text
+index.html, about/, projects/, writing/   one HTML entry per page (title + meta)
 src/
-  App.jsx
-  App.css
-  index.css
-  components/
-    PortfolioSections.jsx
-    SportsBall.jsx
-  content/
-    portfolio.js
+  main.jsx               mounts <App page=...>, sets the design
+  App.jsx                page switch + header/footer
+  index.css              design tokens and component styles
+  App.css                sports ball animation
+  components/            SiteChrome (header/footer), SportsBall, ui helpers
+  pages/                 HomePage, SubPages (About, Projects, Writing)
+  content/portfolio.js   all copy
 ```
 
 ## Deployment
@@ -75,7 +75,8 @@ Workflow file:
 ## Notes
 
 - Content lives in `src/content/portfolio.js`
-- Any content item with `draft: true` shows a visible "Draft" tag on the page. Replace the illustrative value with a real one and remove the flag before relying on it publicly.
+- Design preview: append `?design=b` (dark) or `?design=c` (light) to any page. The default is `site.design` in `src/content/portfolio.js`.
+- To add an article, append `{ title, date, summary, href }` to `writing.articles`.
 - Social preview image: `public/og-image.png` (1200×630); page metadata lives in `index.html`
 - Global look and motion live in `src/index.css` and `src/App.css`
-- The hero sports ball animation is implemented in `src/components/SportsBall.jsx`
+- The sports ball animation is implemented in `src/components/SportsBall.jsx`
