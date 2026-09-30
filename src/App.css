@@ -17,7 +17,7 @@
     animation: heroShadow 7s ease-in-out infinite;
   }
 
-  [data-design='c'] .hero-ball-shadow {
+  [data-theme='light'] .hero-ball-shadow {
     opacity: 0.5;
   }
 
@@ -53,7 +53,7 @@
     filter: drop-shadow(0 16px 22px rgba(2, 6, 23, 0.4));
   }
 
-  [data-design='c'] .sports-ball-svg {
+  [data-theme='light'] .sports-ball-svg {
     filter: drop-shadow(0 12px 16px rgba(15, 27, 45, 0.22));
   }
 

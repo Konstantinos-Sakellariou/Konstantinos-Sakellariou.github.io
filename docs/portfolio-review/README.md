@@ -1,32 +1,60 @@
 # Portfolio review and redesign: working notes
 
-Record of the review and redesign session (Sept 2026) so the work can continue in any
-new session. All code changes are on branch `claude/loving-darwin-eo0wu9`. Nothing is
-merged to `main` yet, so the live site is unchanged.
+Record of the review and redesign session (27–30 Sept 2026), so the work can continue in
+any new session. All code changes are on branch `claude/loving-darwin-eo0wu9`. Nothing
+is merged to `main` yet, so the live site is unchanged.
+
+- Open work: [`../BACKLOG.md`](../BACKLOG.md)
+- Writing plan: [`../WRITING_PLAN.md`](../WRITING_PLAN.md)
 
 ## Where things stand
 
-- **Waiting on Kostas:** choose design **B** (polished dark) or **C** (light editorial).
-  Recommendation: **C**.
-- After the choice: remove the other design and the `?design=` preview switch, regenerate
-  `public/og-image.png` in the chosen style, then open a pull request to `main`.
+- The site has a **dark theme** (former design B) and a **light theme** (former design C).
+  It follows the visitor's system setting by default; the sun/moon button in the header
+  switches and remembers the choice.
+- **Next step:** review locally, then open a pull request to `main` (backlog W-01).
 
-### Preview the designs locally
+### Preview locally
 
 ```bash
 npm install
 npm run dev
-# open http://localhost:5173/?design=b  or  http://localhost:5173/?design=c
-# the same works on /about/, /projects/, /writing/
+# open http://localhost:5173/ and use the sun/moon button to switch themes
+# pages: /, /about/, /projects/, /writing/
 ```
 
 Screenshots are in [`screenshots/`](screenshots/):
 
 | File | What it shows |
 | --- | --- |
-| `compare-desktop.png`, `compare-mobile.png` | A (current), B and C side by side |
+| `compare-desktop.png`, `compare-mobile.png` | A (original), B and C side by side |
 | `A-*.png` | Design A: the single long page before the restructure |
-| `B-*.png`, `C-*.png` | Home (hero and full page), mobile, About, Projects, Writing |
+| `B-*.png` | Now the **dark** theme: home, mobile, About, Projects, Writing |
+| `C-*.png` | Now the **light** theme: home, mobile, About, Projects, Writing |
+
+## Conversation log (what was asked and decided)
+
+1. **Review and upgrade request.** The basketball/football in the hero rendered badly;
+   the goal is to be positioned as a data strategy and AI leader.
+   Interview answers: target Head of AI / Director / CAIO-track roles; based in the
+   Netherlands, open to others; iGaming and sports focus; currently Head of Data Science
+   & AI at Entain NCE, 5 direct reports, built the data science team; reports to the
+   Director of Data & BI; no talks or articles yet; keep the sports ball; no photo on
+   the home page; CV on request; no domain yet.
+2. **Humbler tone.** CAIO is the long-term ambition but must not be stated publicly.
+   Fonts should look more professional. Must work well on iPhone and Android.
+3. **Three designs requested** (current, polished, new executive). The home page became
+   4 blocks with separate pages for the rest; recent projects replaced student projects;
+   "Happy to connect" wording; smaller ball and a stronger quote.
+4. **Numbers.** Kostas was fine launching with placeholder numbers; Claude recommended
+   against publishing invented figures next to the employer's name. The agreed approach:
+   known facts in the highlights, results described in words, real numbers added later
+   by Kostas.
+5. **Themes.** Keep both B and C as a dark and a light theme with a toggle.
+6. **Projects.** Show live websites for private repos (not GitHub links); Kostas may make
+   repos public later. Showcase project ideas recorded in the backlog.
+7. **Writing.** LinkedIn newsletter as the main channel, website as the index; a full
+   plan is in `WRITING_PLAN.md`.
 
 ## What was done (commits on the branch)
 
@@ -34,89 +62,41 @@ Screenshots are in [`screenshots/`](screenshots/):
    the ball sat on top of the note cards. The basketball seams and football panels were
    redrawn, and the lighting no longer rotates with the ball.
 2. **CTA contrast fixed.** The same layering bug caused pale button text.
-3. **Leader repositioning.** Content was rewritten around data science and AI
-   leadership. Page title, meta description, Open Graph tags, a social preview
-   image and a KS favicon were added; unused template assets were removed.
-4. **Humbler tone.** Explicit "Chief AI Officer" claims were removed everywhere
-   (Kostas's request: keep the ambition private).
-5. **Typography.** Self-hosted Inter replaced Sora, Manrope and IBM Plex Mono from
-   Google Fonts. Source Serif 4 is used for headings in design C.
-6. **Mobile polish.** Checked on emulated iPhone SE, 15 Pro and 15 Pro Max, Pixel 7,
-   Galaxy S9+, iPad Mini and desktop Chrome: no horizontal overflow and no console
-   errors on any page in either design. Real Safari/WebKit was not available for
-   testing, so check once on a real iPhone.
+3. **Leader repositioning.** Content rewritten around data science and AI leadership.
+   Page title, meta description, Open Graph tags, social preview image, KS favicon; unused
+   template assets removed.
+4. **Humbler tone.** No "Chief AI Officer" claims anywhere.
+5. **Typography.** Self-hosted Inter (replacing Sora, Manrope and IBM Plex Mono from
+   Google Fonts). The light theme uses Source Serif 4 for headings.
+6. **Mobile polish and testing.** Checked on emulated iPhone SE, 15 Pro and 15 Pro Max,
+   Pixel 7, Galaxy S9+, iPad Mini and desktop Chrome, in both themes and on every page:
+   no horizontal overflow and no console errors. Real Safari was not available, so
+   check once on a real iPhone (backlog W-12).
 7. **Sticky header fixed.** `overflow-x-hidden` had broken `position: sticky`.
-8. **Restructure.** The home page is now 4 blocks (hero and highlights, impact, how I
-   lead, contact) plus separate pages `/about/`, `/projects/` and `/writing/` (Vite
-   multi-page build).
-9. **Projects updated** to recent work (see below). Older student projects were removed.
+8. **Restructure.** Home page in 4 blocks (hero and highlights, impact, how I lead,
+   contact) plus `/about/`, `/projects/` and `/writing/` (Vite multi-page build, one HTML
+   entry per page with its own title and meta).
+9. **Projects** show recent work: Euroleague Draft (www.euroleaguedraft.com), Courtside
+   Analytics (live demo + code), NBA Fantasy Dashboard (nbafantasydashboard.onrender.com),
+   Daily AI Digest (code), Claude Team Kit (code).
+10. **Dark and light themes** with a header toggle. An inline script in each page's
+    `<head>` applies the saved or system theme before first paint (no flash).
 
-## Decisions and open questions
+## How the code is organised
 
-| Topic | Status |
-| --- | --- |
-| Positioning | Data Science & AI leader; CAIO ambition **not** stated publicly |
-| Colours | Kostas liked the dark palette; C is a light alternative to compare |
-| Photo | Not on home page; possibly on About/Bio later |
-| CV | On request by email only |
-| Contact tone | "Happy to connect", with no job-seeking language (Entain colleagues may read it) |
-| Sports ball | Keep as a personal touch (smaller now) |
-| Numbers | Invented figures were **not** published. Highlights use known facts; impact results are in words. Add real numbers as `value` fields in `src/content/portfolio.js` when available. |
-| Impact examples | Illustrative. **Kostas to delete any he did not actually lead** and adjust the "4 focus domains" highlight to match. |
-| Entain | Check what may be said publicly (revenue, safer-gambling details). "Entain NCE" is kept verbatim. |
-| Journey | Earlier roles still to be added (`about.timeline`). |
-| Euroleague Draft link | Is `euroleaguedraft.com` public enough to link? Currently "demo on request". |
-| Launch Foundry | Paid side product; the Claude Team Kit README links to its pricing. Check employer side-business rules before featuring it; if not OK, drop the Team Kit card. |
-| Domain | Not owned yet. Buy one (e.g. `kostassakellariou.com`), add `public/CNAME`, and set it in GitHub Pages settings. |
-
-## GitHub profile cleanup (recommended)
-
-- Make `nba_fantasy_dashboard` public; it supersedes the 2022 `NBA_Fantasy` repo.
-- Rename `agentic_emailing_system.` to drop the trailing dot, then update the link in `src/content/portfolio.js`.
-- Pin: Courtside Analytics (`betting-dashboard`), NBA Fantasy Dashboard, Daily AI Digest, and Claude Team Kit or Euroleague Draft.
-- Archive the student repos: Plant CNN, No Data Science App, Expedia recommender, RNN mood, Evoman, Serie A scraping, the GeneticAlgorithm fork.
-- Rewrite the profile README (`Konstantinos-Sakellariou/Konstantinos-Sakellariou`). It still says "Hallooo people… Data Analytics Lead / Data Scientist & AI Explorer". Match the site's positioning.
-
-## Projects currently on the site
-
-| Project | Repo | Notes |
-| --- | --- | --- |
-| Euroleague Draft | `euroleague-draft-app` (private) | Live beta; FastAPI, Next.js, websockets, accounts |
-| Courtside Analytics | `betting-dashboard` (public) | Live demo on Render; honest track record (strategy vs full record) |
-| NBA Fantasy Dashboard | `nba_fantasy_dashboard` (private) | Dash app, Yahoo integration, CI |
-| Daily AI Digest | `agentic_emailing_system.` (public) | Reframed as an AI-literacy tool for the team |
-| Claude Team Kit | `claude-team-kit` (public) | See the Launch Foundry question above |
-
-## Project ideas to build next (each pairs with an article)
-
-1. **EU AI Act readiness checker:** small web tool that classifies an AI use case by risk tier and lists obligations. Shows governance thinking.
-2. **Safer-gambling risk model on synthetic data:** open-source, with explainability and a fairness report. Own domain, no employer data.
-3. **Evaluation harness for an analytics copilot:** measure text-to-SQL or Q&A quality on a public dataset. Shows how to evaluate GenAI.
-4. **Uplift-modelling playbook:** on the public Criteo uplift dataset, paired with an article on promotion and bonus spend.
-
-## Writing plan
-
-- **Primary channel:** a LinkedIn newsletter (reach recruiters and executives, subscribers get notified).
-- **Site as the index:** add each article to `writing.articles` in `src/content/portfolio.js` (`{ title, date, summary, href }`); the Writing page lists it automatically.
-- **Medium:** not recommended as primary (declining reach for leadership audiences; Towards Data Science left Medium in 2025). Optional cross-post later, pointing back to the original.
-- **First four articles** (the Perspectives on the Writing page):
-  1. AI strategy is a portfolio, not a project
-  2. In regulated markets, responsible AI is a growth lever
-  3. GenAI adoption is change management
-  4. Measure value after launch, not at the pitch
-- **Format:** 700–1,000 words, every two weeks, with a short LinkedIn post in between. Structure: situation → view → practical framework → question for readers. Keep the employer generic or get comms approval.
-- **Link loop:** the site links to LinkedIn; each article ends with "More on my approach: [site]".
-
-## Other recommendations
-
-- **LinkedIn:** headline, e.g. "Head of Data Science & AI @ Entain | AI strategy · responsible AI · GenAI adoption". Add the site under Featured and contact info. Ask two people for recommendations and quote them on the site.
-- **Analytics:** add privacy-friendly analytics (e.g. GoatCounter) to see recruiter visits.
-- **Compatibility:** Tailwind v4 targets Safari 16.4+ / Chrome 111+. Very old iPhones may render imperfectly.
+- All copy: `src/content/portfolio.js`
+- Theme tokens and component styles: `src/index.css` (`[data-theme='dark']`,
+  `[data-theme='light']`)
+- Sports ball: `src/components/SportsBall.jsx`, animation in `src/App.css`
+- Header (navigation, theme toggle) and footer: `src/components/SiteChrome.jsx`
+- Pages: `src/pages/HomePage.jsx`, `src/pages/SubPages.jsx`
+- Page entries: `index.html`, `about/index.html`, `projects/index.html`, `writing/index.html`
 
 ## Resuming in a new session
 
-Open a new Claude Code session on this repo, check out `claude/loving-darwin-eo0wu9`, and start with:
+Open a new Claude Code session on this repo, check out `claude/loving-darwin-eo0wu9`, and
+start with:
 
-> Read `docs/portfolio-review/README.md`. We are continuing the portfolio redesign.
-> I choose design [B/C]. Remove the other design and the `?design=` switch, regenerate
-> the OG image in that style, verify desktop and mobile, and open a PR to main.
+> Read `docs/portfolio-review/README.md`, `docs/BACKLOG.md` and `docs/WRITING_PLAN.md`.
+> We are continuing the portfolio work. Next: [e.g. open the PR to main / add my real
+> numbers / draft article 1].

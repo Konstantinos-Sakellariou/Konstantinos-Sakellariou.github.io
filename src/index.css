@@ -1,8 +1,8 @@
 @import 'tailwindcss';
 
-/* Design B: executive dark. Design C: executive light (editorial). Chosen via <html data-design>. */
+/* Dark and light themes, set on <html data-theme> (see the inline script in each page's <head>). */
 :root,
-[data-design='b'] {
+[data-theme='dark'] {
   --bg: #0b1220;
   --bg-header: rgba(11, 18, 32, 0.82);
   --surface: rgba(255, 255, 255, 0.03);
@@ -26,7 +26,7 @@
   color-scheme: dark;
 }
 
-[data-design='c'] {
+[data-theme='light'] {
   --bg: #f6f4ef;
   --bg-header: rgba(246, 244, 239, 0.88);
   --surface: transparent;
@@ -100,7 +100,7 @@
     background: radial-gradient(60rem 30rem at 20% -10%, rgba(108, 199, 224, 0.12), transparent 70%);
   }
 
-  [data-design='c'] .page-glow {
+  [data-theme='light'] .page-glow {
     display: none;
   }
 
@@ -147,7 +147,7 @@
     padding: 1.5rem;
   }
 
-  [data-design='c'] .card {
+  [data-theme='light'] .card {
     border-width: 2px 0 0;
     border-color: var(--ink);
     padding: 1.25rem 0 0;
@@ -159,7 +159,7 @@
     border-radius: var(--card-radius);
   }
 
-  [data-design='c'] .card-solid {
+  [data-theme='light'] .card-solid {
     border-radius: 2px;
     box-shadow: 0 1px 2px rgba(15, 27, 45, 0.04), 0 12px 32px -18px rgba(15, 27, 45, 0.25);
   }
@@ -169,7 +169,7 @@
     padding-left: 1.25rem;
   }
 
-  [data-design='c'] .quote-text {
+  [data-theme='light'] .quote-text {
     font-family: var(--font-heading);
     font-style: italic;
     font-weight: 500;
@@ -199,8 +199,8 @@
       color 150ms ease;
   }
 
-  [data-design='c'] .btn-primary,
-  [data-design='c'] .btn-secondary {
+  [data-theme='light'] .btn-primary,
+  [data-theme='light'] .btn-secondary {
     border-radius: 2px;
   }
 
@@ -244,7 +244,7 @@
     color: var(--ink-soft);
   }
 
-  [data-design='c'] .chip {
+  [data-theme='light'] .chip {
     border-radius: 2px;
   }
 
@@ -265,12 +265,33 @@
     background: var(--surface-solid);
   }
 
-  [data-design='c'] .nav-link[aria-current] {
+  [data-theme='light'] .nav-link[aria-current] {
     background: transparent;
     text-decoration: underline;
     text-decoration-color: var(--label);
     text-decoration-thickness: 2px;
     text-underline-offset: 6px;
+  }
+
+  .icon-button {
+    display: inline-flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    border: 1px solid var(--line-strong);
+    color: var(--ink);
+    transition: border-color 150ms ease, color 150ms ease;
+  }
+
+  .icon-button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  [data-theme='light'] .icon-button {
+    border-radius: 2px;
   }
 
   .monogram {
@@ -287,7 +308,7 @@
     color: var(--ink);
   }
 
-  [data-design='c'] .monogram {
+  [data-theme='light'] .monogram {
     border-radius: 2px;
     background: var(--ink);
     color: var(--bg);

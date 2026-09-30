@@ -7,8 +7,6 @@ const github = 'https://github.com/Konstantinos-Sakellariou'
 export const site = {
   name: 'Kostas Sakellariou',
   role: 'Head of Data Science & AI',
-  // Preview only: ?design=b or ?design=c overrides this until one design is chosen.
-  design: 'b',
   links: { email, linkedin, github },
 }
 
@@ -165,12 +163,12 @@ export const projects = {
     'I still build. Staying hands-on keeps my judgement sharp about what AI can and cannot do yet, and it is how I try out ideas before bringing them to a team.',
   items: [
     {
-      tag: 'Product · Live beta',
+      tag: 'Product · Live',
       title: 'Euroleague Draft',
       summary:
         'A real-time fantasy draft platform: live draft rooms with websocket sync, enforced roster rules, pick clocks, queues and autopick, private leagues, and accounts. Built as a production product, not a prototype.',
       stack: ['FastAPI', 'Next.js', 'WebSockets', 'Postgres'],
-      links: [],
+      links: [{ label: 'Website', href: 'https://www.euroleaguedraft.com' }],
     },
     {
       tag: 'Sports analytics · Live demo',
@@ -184,12 +182,12 @@ export const projects = {
       ],
     },
     {
-      tag: 'Sports analytics',
+      tag: 'Sports analytics · Live app',
       title: 'NBA Fantasy Dashboard',
       summary:
         'Decision support for head-to-head fantasy leagues: z-score rankings over nine seasons, a matchup projector, waiver recommendations, and a Yahoo integration that loads your own league.',
       stack: ['Python', 'Dash', 'pandas', 'Yahoo API'],
-      links: [],
+      links: [{ label: 'Live app', href: 'https://nbafantasydashboard.onrender.com' }],
     },
     {
       tag: 'AI literacy',

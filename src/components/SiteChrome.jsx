@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Mail, Menu, X } from 'lucide-react'
+import { Mail, Menu, Moon, Sun, X } from 'lucide-react'
 import { FaGithub, FaLinkedin } from 'react-icons/fa'
 import { Container, ExternalLink } from './ui'
 import { navigation, site } from '../content/portfolio'
@@ -34,6 +34,63 @@ function useActiveNav(page) {
   return page === 'home' ? activeSection : page
 }
 
+// The initial theme is applied by the inline script in each page's <head>.
+function useTheme() {
+  const [theme, setTheme] = useState(() => document.documentElement.dataset.theme ?? 'dark')
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme
+  }, [theme])
+
+  // Follow system changes until the visitor picks a theme themselves.
+  useEffect(() => {
+    const query = window.matchMedia('(prefers-color-scheme: light)')
+    const onChange = (event) => {
+      let saved = null
+      try {
+        saved = localStorage.getItem('theme')
+      } catch {
+        // Storage can be unavailable (private mode); fall through to the system theme.
+      }
+      if (!saved) {
+        setTheme(event.matches ? 'light' : 'dark')
+      }
+    }
+
+    query.addEventListener('change', onChange)
+    return () => query.removeEventListener('change', onChange)
+  }, [])
+
+  const toggle = () => {
+    const next = theme === 'dark' ? 'light' : 'dark'
+    setTheme(next)
+    try {
+      localStorage.setItem('theme', next)
+    } catch {
+      // Not persisted; the choice still applies for this page view.
+    }
+  }
+
+  return [theme, toggle]
+}
+
+function ThemeToggle() {
+  const [theme, toggle] = useTheme()
+  const nextLabel = theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'
+
+  return (
+    <button
+      type="button"
+      onClick={toggle}
+      aria-label={nextLabel}
+      title={nextLabel}
+      className="icon-button"
+    >
+      {theme === 'dark' ? <Sun size={17} /> : <Moon size={17} />}
+    </button>
+  )
+}
+
 export function SiteHeader({ page }) {
   const [menuOpen, setMenuOpen] = useState(false)
   const active = useActiveNav(page)
@@ -46,7 +103,7 @@ export function SiteHeader({ page }) {
           <span className="text-sm font-semibold">{site.name}</span>
         </a>
 
-        <nav className="hidden items-center gap-1 lg:flex" aria-label="Main">
+        <nav className="ml-auto mr-2 hidden items-center gap-1 lg:flex" aria-label="Main">
           {navigation.map((item) => (
             <a
               key={item.id}
@@ -59,15 +116,18 @@ export function SiteHeader({ page }) {
           ))}
         </nav>
 
-        <button
-          type="button"
-          aria-expanded={menuOpen}
-          aria-label="Toggle navigation"
-          onClick={() => setMenuOpen((open) => !open)}
-          className="rule inline-flex h-10 w-10 items-center justify-center rounded-full border lg:hidden"
-        >
-          {menuOpen ? <X size={18} /> : <Menu size={18} />}
-        </button>
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            type="button"
+            aria-expanded={menuOpen}
+            aria-label="Toggle navigation"
+            onClick={() => setMenuOpen((open) => !open)}
+            className="icon-button lg:hidden"
+          >
+            {menuOpen ? <X size={18} /> : <Menu size={18} />}
+          </button>
+        </div>
       </Container>
 
       {menuOpen ? (

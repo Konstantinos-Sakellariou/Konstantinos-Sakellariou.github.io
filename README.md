@@ -48,9 +48,9 @@ npm run lint
 ```text
 index.html, about/, projects/, writing/   one HTML entry per page (title + meta)
 src/
-  main.jsx               mounts <App page=...>, sets the design
+  main.jsx               mounts <App page=...>
   App.jsx                page switch + header/footer
-  index.css              design tokens and component styles
+  index.css              theme tokens (dark/light) and component styles
   App.css                sports ball animation
   components/            SiteChrome (header/footer), SportsBall, ui helpers
   pages/                 HomePage, SubPages (About, Projects, Writing)
@@ -75,7 +75,8 @@ Workflow file:
 ## Notes
 
 - Content lives in `src/content/portfolio.js`
-- Design preview: append `?design=b` (dark) or `?design=c` (light) to any page. The default is `site.design` in `src/content/portfolio.js`.
+- Dark and light themes: the site follows the visitor's system setting, and the header button switches and remembers the choice. Tokens live in `src/index.css`.
+- Open work: `docs/BACKLOG.md` · writing plan: `docs/WRITING_PLAN.md` · session notes: `docs/portfolio-review/README.md`
 - To add an article, append `{ title, date, summary, href }` to `writing.articles`.
 - Social preview image: `public/og-image.png` (1200×630); page metadata lives in `index.html`
 - Global look and motion live in `src/index.css` and `src/App.css`
