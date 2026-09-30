@@ -2,12 +2,12 @@
 
 Personal portfolio site for [konstantinos-sakellariou.github.io](https://konstantinos-sakellariou.github.io).
 
-The site is built with React, Vite, Tailwind CSS, and GitHub Pages. It is designed as a single-page portfolio focused on:
+The site is built with React, Vite, Tailwind CSS, and GitHub Pages. It is a small multi-page site positioning Kostas as a data science and AI leader:
 
-- personal positioning and profile
-- featured project case studies
-- selected project archive
-- AI, analytics, sports, and iGaming themes
+- `/` home: hero and highlights, selected impact, how I lead, contact
+- `/about/`: background, journey, what motivates me
+- `/projects/`: hands-on projects
+- `/writing/`: principles and (soon) articles
 
 ## Stack
 
@@ -46,15 +46,15 @@ npm run lint
 ## Project Structure
 
 ```text
+index.html, about/, projects/, writing/   one HTML entry per page (title + meta)
 src/
-  App.jsx
-  App.css
-  index.css
-  components/
-    PortfolioSections.jsx
-    SportsBall.jsx
-  content/
-    portfolio.js
+  main.jsx               mounts <App page=...>
+  App.jsx                page switch + header/footer
+  index.css              theme tokens (dark/light) and component styles
+  App.css                sports ball animation
+  components/            SiteChrome (header/footer), SportsBall, ui helpers
+  pages/                 HomePage, SubPages (About, Projects, Writing)
+  content/portfolio.js   all copy
 ```
 
 ## Deployment
@@ -75,5 +75,9 @@ Workflow file:
 ## Notes
 
 - Content lives in `src/content/portfolio.js`
+- Dark and light themes: the site follows the visitor's system setting, and the header button switches and remembers the choice. Tokens live in `src/index.css`.
+- Open work: `docs/BACKLOG.md` · writing plan: `docs/WRITING_PLAN.md` · session notes: `docs/portfolio-review/README.md`
+- To add an article, append `{ title, date, summary, href }` to `writing.articles`.
+- Social preview image: `public/og-image.png` (1200×630); page metadata lives in `index.html`
 - Global look and motion live in `src/index.css` and `src/App.css`
-- The hero sports ball animation is implemented in `src/components/SportsBall.jsx`
+- The sports ball animation is implemented in `src/components/SportsBall.jsx`
